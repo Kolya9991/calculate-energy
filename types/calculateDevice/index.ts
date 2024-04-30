@@ -8,5 +8,5 @@ export interface IDeviceProps {
   stepKw?: number;
   kw: number;
   kwMonth: number;
-
+  maxKwMonth?: number;
 }
