@@ -4,15 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bf4ec1fc-e48d-4545-af1b-64be8bbd48ae" name="Changes" comment="add export to pdf">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/(protected)/calculation-result/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/export-to-pdf/ExportToPDFButton.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/fonts/Roboto-Regular/Roboto-Regular.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/robotoFontBase64.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/types/calculateDevice/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/settings-profile/Navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/settings-profile/Navbar.tsx" afterDir="false" />
+    <list default="true" id="bf4ec1fc-e48d-4545-af1b-64be8bbd48ae" name="Changes" comment="add export to excel&#10;install lib:&#10; - xlsx">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/export-to-xlsx/ExportToXLSXButton.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(protected)/calculation-result/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(protected)/calculation-result/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
@@ -92,6 +89,7 @@
       <workItem from="1714409229798" duration="2086000" />
       <workItem from="1714468285008" duration="4736000" />
       <workItem from="1714473870556" duration="2449000" />
+      <workItem from="1714492052339" duration="983000" />
     </task>
     <task id="LOCAL-00001" summary="add needed folders">
       <option name="closed" value="true" />
@@ -101,7 +99,23 @@
       <option name="project" value="LOCAL" />
       <updated>1714410142897</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="add export to pdf&#10;add config to .gitignore&#10;install package: jspdf&#10;add font Roboto to correct showing pdf charset">
+      <option name="closed" value="true" />
+      <created>1714478526279</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1714478526279</updated>
+    </task>
+    <task id="LOCAL-00003" summary="add export to word&#10;install libs:&#10; - docx&#10; - file-saver">
+      <option name="closed" value="true" />
+      <created>1714479235058</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1714479235058</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -110,6 +124,9 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="add needed folders" />
     <MESSAGE value="add export to pdf" />
-    <option name="LAST_COMMIT_MESSAGE" value="add export to pdf" />
+    <MESSAGE value="add export to pdf&#10;add config to .gitignore&#10;install package: jspdf&#10;add font Roboto to correct showing pdf charset" />
+    <MESSAGE value="add export to word&#10;install libs:&#10; - docx&#10; - file-saver" />
+    <MESSAGE value="add export to excel&#10;install lib:&#10; - xlsx" />
+    <option name="LAST_COMMIT_MESSAGE" value="add export to excel&#10;install lib:&#10; - xlsx" />
   </component>
 </project>

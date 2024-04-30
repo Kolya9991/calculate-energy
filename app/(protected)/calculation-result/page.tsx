@@ -1,6 +1,7 @@
 import ExportToPdfButton from "@/components/export-to-pdf/ExportToPDFButton";
 import {IDeviceProps} from "@/types/calculateDevice";
 import ExportToDocxButton from "@/components/export-to-docx/ExportToDocxButton";
+import ExportToXLSXButton from "@/components/export-to-xlsx/ExportToXLSXButton";
 
 const Page = () => {
   const array: IDeviceProps[] = [
@@ -21,6 +22,7 @@ const Page = () => {
     <div className='space-x-4'>
       <ExportToPdfButton data={array}/>
       <ExportToDocxButton data={array}/>
+      <ExportToXLSXButton data={array}/>
     </div>
   );
 };
