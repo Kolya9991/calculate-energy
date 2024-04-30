@@ -98,7 +98,7 @@ const LoginForm = () => {
                         />
                       </FormControl>
                       <Button size='sm' variant='link' asChild className='px-0 font-normal'>
-                        <Link href='/auth/reset'>Забули пароль</Link>
+                        <Link href='/auth/reset'>Забули пароль?</Link>
                       </Button>
                       <FormMessage/>
                     </FormItem>
