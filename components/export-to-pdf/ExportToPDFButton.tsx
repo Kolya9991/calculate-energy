@@ -30,7 +30,7 @@ const ExportToPdfButton: FC<IExportToPdfButtonProps> = ({data}) => {
       'Години роботи',
       'Період',
       'кВт',
-      'кВт в месяц'
+      'кВт в місяць'
     ];
 
     const rows = data.map(item => [
@@ -48,7 +48,7 @@ const ExportToPdfButton: FC<IExportToPdfButtonProps> = ({data}) => {
       styles: { font: 'Roboto' }
     });
 
-    doc.save('report.pdf');
+    doc.save('Розрахунок енергоефективностi.pdf');
   };
 
   return <Button onClick={exportPDF}>Экспорт в PDF</Button>;
