@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bf4ec1fc-e48d-4545-af1b-64be8bbd48ae" name="Changes" comment="add own dns domain to sent email from other emails">
+    <list default="true" id="bf4ec1fc-e48d-4545-af1b-64be8bbd48ae" name="Changes" comment="update path">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/mail.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/mail.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,7 +88,7 @@
       <workItem from="1714473870556" duration="2449000" />
       <workItem from="1714492052339" duration="8119000" />
       <workItem from="1714542949868" duration="2145000" />
-      <workItem from="1714545281935" duration="984000" />
+      <workItem from="1714545281935" duration="2072000" />
     </task>
     <task id="LOCAL-00001" summary="add needed folders">
       <option name="closed" value="true" />
@@ -155,7 +154,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714546630571</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="update env file">
+      <option name="closed" value="true" />
+      <created>1714546878397</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1714546878397</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -171,6 +178,7 @@
     <MESSAGE value="update gitignore&#10;update schema Calculate for users&#10;add schema Device for all users storage date about device" />
     <MESSAGE value="create form to add device for admin only&#10;add new schema DeviceSchema" />
     <MESSAGE value="add own dns domain to sent email from other emails" />
-    <option name="LAST_COMMIT_MESSAGE" value="add own dns domain to sent email from other emails" />
+    <MESSAGE value="update env file" />
+    <option name="LAST_COMMIT_MESSAGE" value="update env file" />
   </component>
 </project>
