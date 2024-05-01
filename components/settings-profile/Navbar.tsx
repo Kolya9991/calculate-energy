@@ -1,17 +1,19 @@
-'use client'
+'use client';
 import {Button} from "@/components/ui/button";
 import Link from "next/link";
 import {usePathname} from "next/navigation";
 import UserButton from "@/components/auth/userButton";
+import {useCurrentUser} from "@/hooks/useCurrentUser";
 
 const Navbar = () => {
   const pathname = usePathname()
+  const user = useCurrentUser()
   return (
     <nav className='bg-secondary flex justify-between items-center p-4 rounded-xl w-[600px] shadow-md'>
       <div className='flex gap-x-2'>
-        <Button asChild variant={pathname === "/server" ? 'default' : 'outline'}>
-          <Link href='/server'>Server</Link>
-        </Button>
+        {user?.role === 'ADMIN' ? <Button asChild variant={pathname === "/admin" ? 'default' : 'outline'}>
+          <Link href='/admin'>Admin</Link>
+        </Button> : null}
         <Button asChild variant={pathname === "/client" ? 'default' : 'outline'}>
           <Link href='/client'>Client</Link>
         </Button>

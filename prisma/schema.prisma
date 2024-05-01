@@ -105,11 +105,8 @@ model TwoFactorConfirmation {
 model Device {
   id         String @id @default(cuid())
   nameDevice String
-  count      Int    @default(1)
-  hoursWork  Int    @default(1)
-  period     String
-  kwMin      Int
-  kwMax      Int
-  stepKw     Int
-  maxKwMonth Int
+  kwMin      String
+  kwMax      String
+  stepKw     String
+  maxKwMonth String
 }

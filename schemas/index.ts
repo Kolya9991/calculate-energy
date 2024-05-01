@@ -43,3 +43,11 @@ export const SettingSchema = z.object({
   message: 'Новий пароль є обов`язковим',
   path: ['password']
 })
+
+export const DeviceSchema = z.object({
+  nameDevice: z.string().min(1),
+  kwMin: z.string(),
+  kwMax: z.string(),
+  stepKw: z.string(),
+  maxKwMonth: z.string(),
+})
