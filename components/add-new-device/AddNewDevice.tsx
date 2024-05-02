@@ -18,6 +18,7 @@ const AddNewDevice = () => {
   const form = useForm<z.infer<typeof DeviceSchema>>({
     resolver: zodResolver(DeviceSchema),
     defaultValues: {
+      id: '',
       nameDevice: '',
       kwMin: '0',
       kwMax: '0',
@@ -30,6 +31,7 @@ const AddNewDevice = () => {
     setError('')
     setSuccess('')
     startTransition(() => {
+      console.log(values)
       addDevice(values)
         .then((data) => {
           setError(data?.error);

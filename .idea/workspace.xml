@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bf4ec1fc-e48d-4545-af1b-64be8bbd48ae" name="Changes" comment="getting all device&#10;add libs:&#10; table&#10; tabs">
+    <list default="true" id="bf4ec1fc-e48d-4545-af1b-64be8bbd48ae" name="Changes" comment="add actions with cell:&#10; - copy id&#10; - delete device&#10;add component: &#10; - modal.tsx&#10; - AlertModal.tsx&#10; - ActionWithCell.tsx&#10;install lib:&#10; - lucide-react">
       <change afterPath="$PROJECT_DIR$/actions/delete-device.ts" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/components/action-with-cell/ActionWithCell.tsx" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/components/modals/AlertModal.tsx" afterDir="false" />
@@ -103,7 +103,7 @@
       <workItem from="1714542949868" duration="2145000" />
       <workItem from="1714545281935" duration="2072000" />
       <workItem from="1714577989579" duration="7856000" />
-      <workItem from="1714630675469" duration="1410000" />
+      <workItem from="1714630675469" duration="1793000" />
     </task>
     <task id="LOCAL-00001" summary="add needed folders">
       <option name="closed" value="true" />
@@ -185,7 +185,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714582732024</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="add actions with cell:&#10; - copy id&#10; - delete device&#10;add component: &#10; - modal.tsx&#10; - AlertModal.tsx&#10; - ActionWithCell.tsx&#10;install lib:&#10; - lucide-react">
+      <option name="closed" value="true" />
+      <created>1714635200035</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1714635200035</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -204,6 +212,7 @@
     <MESSAGE value="add own dns domain to sent email from other emails" />
     <MESSAGE value="update env file" />
     <MESSAGE value="getting all device&#10;add libs:&#10; table&#10; tabs" />
-    <option name="LAST_COMMIT_MESSAGE" value="getting all device&#10;add libs:&#10; table&#10; tabs" />
+    <MESSAGE value="add actions with cell:&#10; - copy id&#10; - delete device&#10;add component: &#10; - modal.tsx&#10; - AlertModal.tsx&#10; - ActionWithCell.tsx&#10;install lib:&#10; - lucide-react" />
+    <option name="LAST_COMMIT_MESSAGE" value="add actions with cell:&#10; - copy id&#10; - delete device&#10;add component: &#10; - modal.tsx&#10; - AlertModal.tsx&#10; - ActionWithCell.tsx&#10;install lib:&#10; - lucide-react" />
   </component>
 </project>
