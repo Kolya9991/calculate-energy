@@ -4,8 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bf4ec1fc-e48d-4545-af1b-64be8bbd48ae" name="Changes" comment="update path">
+    <list default="true" id="bf4ec1fc-e48d-4545-af1b-64be8bbd48ae" name="Changes" comment="getting all device&#10;add libs:&#10; table&#10; tabs">
+      <change afterPath="$PROJECT_DIR$/actions/delete-device.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/action-with-cell/ActionWithCell.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/modals/AlertModal.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/ui/modal.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/types/device.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/all-device/AllDevice.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/all-device/AllDevice.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schemas/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/schemas/index.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +31,9 @@
   &quot;associatedIndex&quot;: 8
 }</component>
   <component name="ProjectId" id="2fmbW9D78cO6DCBhftDM9yGzay0" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="autoscrollFromSource" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -29,6 +41,7 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;E:/calculate-energy-diplom-full/public&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
@@ -89,6 +102,8 @@
       <workItem from="1714492052339" duration="8119000" />
       <workItem from="1714542949868" duration="2145000" />
       <workItem from="1714545281935" duration="2072000" />
+      <workItem from="1714577989579" duration="7856000" />
+      <workItem from="1714630675469" duration="1410000" />
     </task>
     <task id="LOCAL-00001" summary="add needed folders">
       <option name="closed" value="true" />
@@ -162,13 +177,22 @@
       <option name="project" value="LOCAL" />
       <updated>1714546878397</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="getting all device&#10;add libs:&#10; table&#10; tabs">
+      <option name="closed" value="true" />
+      <created>1714582732024</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1714582732024</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="add needed folders" />
     <MESSAGE value="add export to pdf" />
     <MESSAGE value="add export to pdf&#10;add config to .gitignore&#10;install package: jspdf&#10;add font Roboto to correct showing pdf charset" />
@@ -179,6 +203,7 @@
     <MESSAGE value="create form to add device for admin only&#10;add new schema DeviceSchema" />
     <MESSAGE value="add own dns domain to sent email from other emails" />
     <MESSAGE value="update env file" />
-    <option name="LAST_COMMIT_MESSAGE" value="update env file" />
+    <MESSAGE value="getting all device&#10;add libs:&#10; table&#10; tabs" />
+    <option name="LAST_COMMIT_MESSAGE" value="getting all device&#10;add libs:&#10; table&#10; tabs" />
   </component>
 </project>

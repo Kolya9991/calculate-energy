@@ -45,6 +45,7 @@ export const SettingSchema = z.object({
 })
 
 export const DeviceSchema = z.object({
+  id: z.string(),
   nameDevice: z.string().min(1),
   kwMin: z.string(),
   kwMax: z.string(),

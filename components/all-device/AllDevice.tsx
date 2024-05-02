@@ -3,6 +3,7 @@ import {useEffect, useState} from 'react'
 import {getDevices} from "@/actions/getDevices";
 import {DeviceSchema} from "@/schemas";
 import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow,} from "@/components/ui/table"
+import ActionWithCell from "@/components/action-with-cell/ActionWithCell";
 
 const DevicesSchema = z.array(DeviceSchema);
 
@@ -40,7 +41,7 @@ const AllDevice = () => {
             <TableCell>{device.kwMax}</TableCell>
             <TableCell>{device.stepKw}</TableCell>
             <TableCell>{device.maxKwMonth}</TableCell>
-            <TableCell className='cursor-pointer'>actions</TableCell>
+            <TableCell className='cursor-pointer'><ActionWithCell data={device} setDevices={setData}/></TableCell>
           </TableRow>
         ))}
       </TableBody>
