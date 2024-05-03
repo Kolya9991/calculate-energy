@@ -4,6 +4,7 @@ import {getDevices} from "@/actions/getDevices";
 import {DeviceSchema} from "@/schemas";
 import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow,} from "@/components/ui/table"
 import ActionWithCell from "@/components/action-with-cell/ActionWithCell";
+import { Skeleton } from '../ui/skeleton';
 
 const DevicesSchema = z.array(DeviceSchema);
 
@@ -24,6 +25,9 @@ const AllDevice = () => {
     'Крок в кВт',
     'кВт макс в місяць'
   ];
+  if (!data) {
+    return <Skeleton className="w-[600px] h-[20px] rounded-full" />
+  }
   return (
     <Table className="bg-white w-auto mx-auto rounded-xl h-full">
       <TableHeader>
