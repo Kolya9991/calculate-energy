@@ -28,7 +28,7 @@ const AllDevice = () => {
     <Table className="bg-white w-auto mx-auto rounded-xl h-full">
       <TableHeader>
         <TableRow>
-          {headers.map((header)=>(
+          {headers.map((header) => (
             <TableHead>{header}</TableHead>
           ))}
         </TableRow>
@@ -41,7 +41,8 @@ const AllDevice = () => {
             <TableCell>{device.kwMax}</TableCell>
             <TableCell>{device.stepKw}</TableCell>
             <TableCell>{device.maxKwMonth}</TableCell>
-            <TableCell className='cursor-pointer'><ActionWithCell data={device} setDevices={setData}/></TableCell>
+            <TableCell className='cursor-pointer'><ActionWithCell data={device} setDevices={setData}/>
+            </TableCell>
           </TableRow>
         ))}
       </TableBody>

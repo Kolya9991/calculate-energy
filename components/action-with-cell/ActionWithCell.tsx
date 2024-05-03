@@ -14,6 +14,9 @@ import {toast} from "sonner";
 import {AlertModal} from "@/components/modals/AlertModal";
 import {IDeviceAddProps} from "@/types/device";
 import {deleteDevice} from "@/actions/delete-device";
+import UpdateDevice from "@/components/update-device/UpdateDevice";
+import { usePathname, useRouter} from "next/navigation";
+
 
 interface IActionWithCellProps {
   data: IDeviceAddProps;
@@ -23,6 +26,11 @@ interface IActionWithCellProps {
 const ActionWithCell: FC<IActionWithCellProps> = ({data, setDevices}) => {
   const [open, setOpen] = useState(false);
   const [isPending, startTransition] = useTransition();
+  const [isUpdateOpen, setIsUpdateOpen] = useState(false);
+  const [close, setClose] = useState(false)
+  const router = useRouter()
+  const path = usePathname()
+  console.log(path)
 
   const onCopy = (id: string) => {
     navigator.clipboard.writeText(id);
@@ -37,6 +45,7 @@ const ActionWithCell: FC<IActionWithCellProps> = ({data, setDevices}) => {
         if (response.error) {
           toast.error(response?.error);
         } else {
+          setClose(true)
           toast.success(response?.success);
           setDevices(currentDevices => currentDevices?.filter(device => device.id !== id));
         }
@@ -47,35 +56,42 @@ const ActionWithCell: FC<IActionWithCellProps> = ({data, setDevices}) => {
 
   return (
     <>
-      <AlertModal
-        isOpen={open}
-        onClose={() => setOpen(false)}
-        onConfirm={() => onConfirm(data.id)}
-        loading={isPending}
-        title="Підтвердження видалення"
-        description="Ви впевнені, що хочете видалити цей пристрій?"
-      />
-      <DropdownMenu>
-        <DropdownMenuTrigger asChild>
-          <Button variant="ghost" className="h-8 w-8 p-0">
-            <MoreHorizontal className="h-4 w-4"/>
-          </Button>
-        </DropdownMenuTrigger>
-        <DropdownMenuContent align="end">
-          <DropdownMenuLabel>Дії з коміркою</DropdownMenuLabel>
-          <DropdownMenuItem onClick={() => onCopy(data.id)}>
-            <Copy className="mr-2 h-4 w-4"/> Копіювати Id
-          </DropdownMenuItem>
-          <DropdownMenuItem>
-            <Edit className="mr-2 h-4 w-4"/> Оновити дані пристрою
-          </DropdownMenuItem>
-          <DropdownMenuItem onClick={() => setOpen(true)}>
-            <Trash className="mr-2 h-4 w-4"/> Видалити
-          </DropdownMenuItem>
-        </DropdownMenuContent>
-      </DropdownMenu>
+      {isUpdateOpen ? (
+        <UpdateDevice initialData={data} />
+      ) : (
+        <>
+          <AlertModal
+            isOpen={open}
+            onClose={() => setOpen(false)}
+            onConfirm={() => onConfirm(data.id)}
+            loading={isPending}
+            title="Підтвердження видалення"
+            description="Ви впевнені, що хочете видалити цей пристрій?"
+          />
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="ghost" className="h-8 w-8 p-0">
+                <MoreHorizontal className="h-4 w-4" />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end">
+              <DropdownMenuLabel>Дії з коміркою</DropdownMenuLabel>
+              <DropdownMenuItem onClick={() => onCopy(data.id)}>
+                <Copy className="mr-2 h-4 w-4" /> Копіювати Id
+              </DropdownMenuItem>
+              <DropdownMenuItem onClick={() => router.push(`${path}/device/${data.id}`)}>
+                <Edit className="mr-2 h-4 w-4" /> Оновити дані пристрою
+              </DropdownMenuItem>
+              <DropdownMenuItem onClick={() => setOpen(true)}>
+                <Trash className="mr-2 h-4 w-4" /> Видалити
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </>
+      )}
     </>
   );
+
 };
 
 export default ActionWithCell;

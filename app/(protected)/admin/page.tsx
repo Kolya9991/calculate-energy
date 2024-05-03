@@ -14,7 +14,7 @@ const AdminPage = () => {
         <TabsTrigger value='get'>Показати всі пристрої</TabsTrigger>
       </TabsList>
       <TabsContent value='add'><AddNewDevice/></TabsContent>
-      <TabsContent value='get'><AllDevice/></TabsContent>
+      <TabsContent value='get' className='overflow-visible'><AllDevice/></TabsContent>
     </Tabs>
   );
 };

@@ -4,17 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bf4ec1fc-e48d-4545-af1b-64be8bbd48ae" name="Changes" comment="add actions with cell:&#10; - copy id&#10; - delete device&#10;add component: &#10; - modal.tsx&#10; - AlertModal.tsx&#10; - ActionWithCell.tsx&#10;install lib:&#10; - lucide-react">
-      <change afterPath="$PROJECT_DIR$/actions/delete-device.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/action-with-cell/ActionWithCell.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/modals/AlertModal.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/ui/modal.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/types/device.ts" afterDir="false" />
+    <list default="true" id="bf4ec1fc-e48d-4545-af1b-64be8bbd48ae" name="Changes" comment="add necessary field id for add new device form">
+      <change afterPath="$PROJECT_DIR$/actions/get-device.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/actions/update-device.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/(protected)/admin/device/[deviceId]/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/update-device/UpdateDevice.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(protected)/admin/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(protected)/admin/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/action-with-cell/ActionWithCell.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/action-with-cell/ActionWithCell.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/all-device/AllDevice.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/all-device/AllDevice.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schemas/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/schemas/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ui/table.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ui/table.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,7 +102,9 @@
       <workItem from="1714542949868" duration="2145000" />
       <workItem from="1714545281935" duration="2072000" />
       <workItem from="1714577989579" duration="7856000" />
-      <workItem from="1714630675469" duration="1793000" />
+      <workItem from="1714630675469" duration="2789000" />
+      <workItem from="1714713164153" duration="8551000" />
+      <workItem from="1714730461907" duration="4335000" />
     </task>
     <task id="LOCAL-00001" summary="add needed folders">
       <option name="closed" value="true" />
@@ -193,7 +194,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714635200035</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="add necessary field id for add new device form">
+      <option name="closed" value="true" />
+      <created>1714635498232</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1714635498232</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -213,6 +222,7 @@
     <MESSAGE value="update env file" />
     <MESSAGE value="getting all device&#10;add libs:&#10; table&#10; tabs" />
     <MESSAGE value="add actions with cell:&#10; - copy id&#10; - delete device&#10;add component: &#10; - modal.tsx&#10; - AlertModal.tsx&#10; - ActionWithCell.tsx&#10;install lib:&#10; - lucide-react" />
-    <option name="LAST_COMMIT_MESSAGE" value="add actions with cell:&#10; - copy id&#10; - delete device&#10;add component: &#10; - modal.tsx&#10; - AlertModal.tsx&#10; - ActionWithCell.tsx&#10;install lib:&#10; - lucide-react" />
+    <MESSAGE value="add necessary field id for add new device form" />
+    <option name="LAST_COMMIT_MESSAGE" value="add necessary field id for add new device form" />
   </component>
 </project>
