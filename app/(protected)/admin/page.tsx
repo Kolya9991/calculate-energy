@@ -13,7 +13,7 @@ const AdminPage = () => {
       <TabsList className='flex max-w-min'>
         <TabsTrigger value='add'>Додати новий пристрій</TabsTrigger>
         <TabsTrigger value='get'>Показати всі пристрої</TabsTrigger>
-        <TabsTrigger value='import'>Показати всі пристрої</TabsTrigger>
+        <TabsTrigger value='import'>Імпортувати пристрої</TabsTrigger>
       </TabsList>
       <TabsContent value='add'><AddNewDevice/></TabsContent>
       <TabsContent value='get' className='overflow-visible'><AllDevice/></TabsContent>
