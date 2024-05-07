@@ -4,14 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bf4ec1fc-e48d-4545-af1b-64be8bbd48ae" name="Changes" comment="add component ImportDevices">
-      <change afterPath="$PROJECT_DIR$/app/api/read-xlsx.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/import-devices/ImportDevices.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/import-devices/ImportDevices.tsx" afterDir="false" />
+    <list default="true" id="bf4ec1fc-e48d-4545-af1b-64be8bbd48ae" name="Changes" comment="change lable">
+      <change afterPath="$PROJECT_DIR$/components/export-template/ExportTemplate.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/excel.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/excelIcon.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/wordIcon.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(protected)/admin/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(protected)/admin/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(protected)/client/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(protected)/client/page.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,6 +57,7 @@
       <recent name="E:\calculate-energy-diplom-full\app" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\calculate-energy-diplom-full\public" />
       <recent name="E:\calculate-energy-diplom-full" />
       <recent name="E:\calculate-energy-diplom-full\app" />
     </key>
@@ -104,7 +104,7 @@
       <workItem from="1714630675469" duration="2789000" />
       <workItem from="1714713164153" duration="8551000" />
       <workItem from="1714730461907" duration="5523000" />
-      <workItem from="1715056736338" duration="392000" />
+      <workItem from="1715056736338" duration="3514000" />
     </task>
     <task id="LOCAL-00001" summary="add needed folders">
       <option name="closed" value="true" />
@@ -218,7 +218,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715057130017</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="change lable">
+      <option name="closed" value="true" />
+      <created>1715057317745</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1715057317745</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -241,6 +249,7 @@
     <MESSAGE value="add necessary field id for add new device form" />
     <MESSAGE value="create updating device page" />
     <MESSAGE value="add component ImportDevices" />
-    <option name="LAST_COMMIT_MESSAGE" value="add component ImportDevices" />
+    <MESSAGE value="change lable" />
+    <option name="LAST_COMMIT_MESSAGE" value="change lable" />
   </component>
 </project>
