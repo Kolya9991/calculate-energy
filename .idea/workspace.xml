@@ -5,7 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bf4ec1fc-e48d-4545-af1b-64be8bbd48ae" name="Changes" comment="create updating device page">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/api/read-xlsx.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/import-devices/ImportDevices.module.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/import-devices/ImportDevices.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(protected)/admin/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(protected)/admin/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,6 +57,7 @@
       <recent name="E:\calculate-energy-diplom-full\app" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\calculate-energy-diplom-full" />
       <recent name="E:\calculate-energy-diplom-full\app" />
     </key>
   </component>
