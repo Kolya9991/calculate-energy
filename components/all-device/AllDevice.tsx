@@ -18,16 +18,21 @@ const AllDevice = () => {
       console.error("Error fetching devices:", error);
     });
   }, []);
+
   const headers = [
     'Назва приладу',
     'кВт мін',
     'кВт макс',
     'Крок в кВт',
-    'кВт макс в місяць'
+    'кВт макс в місяць',
+    'Мінімальний крок kW',
+    'Максимальний крок kW',
   ];
+
   if (!data) {
     return <Skeleton className="w-[600px] h-[20px] rounded-full" />
   }
+
   return (
     <Table className="bg-white w-auto mx-auto rounded-xl h-full">
       <TableHeader>
@@ -45,6 +50,8 @@ const AllDevice = () => {
             <TableCell>{device.kwMax}</TableCell>
             <TableCell>{device.stepKw}</TableCell>
             <TableCell>{device.maxKwMonth}</TableCell>
+            <TableCell>{device.stepKwMin}</TableCell>
+            <TableCell>{device.stepKwMax}</TableCell>
             <TableCell className='cursor-pointer'><ActionWithCell data={device} setDevices={setData}/>
             </TableCell>
           </TableRow>

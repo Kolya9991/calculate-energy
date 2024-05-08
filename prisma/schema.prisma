@@ -60,11 +60,11 @@ model Calculate {
   User       User?   @relation(fields: [userId], references: [id])
   userId     String?
   nameDevice String
-  count      Int
-  hoursWork  Int
+  count      String
+  hoursWork  String
   period     String
-  kw         Int
-  kwMonth    Int
+  kw         String
+  kwMonth    String
 }
 
 model VerificationToken {
@@ -109,4 +109,6 @@ model Device {
   kwMax      String
   stepKw     String
   maxKwMonth String
+  stepKwMin  String
+  stepKwMax  String
 }

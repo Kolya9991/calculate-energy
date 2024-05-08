@@ -51,4 +51,16 @@ export const DeviceSchema = z.object({
   kwMax: z.string(),
   stepKw: z.string(),
   maxKwMonth: z.string(),
+  stepKwMin: z.string(),
+  stepKwMax: z.string(),
+})
+
+export const CalculateDevices = z.object({
+  id: z.string(),
+  nameDevice: z.string().min(1),
+  count: z.string(),
+  hourWork: z.string(),
+  period: z.string(),
+  kw: z.string(),
+  kwMonth: z.string(),
 })

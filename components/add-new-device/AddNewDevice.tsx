@@ -24,6 +24,8 @@ const AddNewDevice = () => {
       kwMax: '0',
       stepKw: '0.01',
       maxKwMonth: '10',
+      stepKwMin: '0',
+      stepKwMax: '0'
     },
   })
 
@@ -119,6 +121,36 @@ const AddNewDevice = () => {
                 render={({field}) => (
                   <FormItem>
                     <FormLabel>Макс кВт</FormLabel>
+                    <FormControl>
+                      <Input
+                        {...field}
+                        disabled={isPending}
+                      />
+                    </FormControl>
+                    <FormMessage/>
+                  </FormItem>
+                )}/>
+              <FormField
+                name='stepKwMin'
+                control={form.control}
+                render={({field}) => (
+                  <FormItem>
+                    <FormLabel>Мінімальний крок kW</FormLabel>
+                    <FormControl>
+                      <Input
+                        {...field}
+                        disabled={isPending}
+                      />
+                    </FormControl>
+                    <FormMessage/>
+                  </FormItem>
+                )}/>
+              <FormField
+                name='stepKwMax'
+                control={form.control}
+                render={({field}) => (
+                  <FormItem>
+                    <FormLabel>Максимальний крок kW</FormLabel>
                     <FormControl>
                       <Input
                         {...field}

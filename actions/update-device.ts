@@ -10,7 +10,7 @@ export const updateDevice = async (values: z.infer<typeof DeviceSchema>) => {
   if (!validatedFields.success) {
     return {error: 'Невірно заповненні поля'}
   }
-  const {id, nameDevice, maxKwMonth, kwMax, stepKw, kwMin} = validatedFields.data;
+  const {id, nameDevice, maxKwMonth, kwMax, stepKw, kwMin, stepKwMin, stepKwMax} = validatedFields.data;
   try {
     await db.device.update({
       where: {id},
@@ -19,7 +19,9 @@ export const updateDevice = async (values: z.infer<typeof DeviceSchema>) => {
         maxKwMonth,
         kwMax,
         stepKw,
-        kwMin
+        kwMin,
+        stepKwMin,
+        stepKwMax
       }
     });
     return {success: 'Пристрій успішно оновлено!'};

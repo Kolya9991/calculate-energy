@@ -127,6 +127,36 @@ const UpdateDevice: FC<IUpdateDeviceProps> = ({ initialData }) => {
                     <FormMessage/>
                   </FormItem>
                 )}/>
+              <FormField
+                name='stepKwMin'
+                control={form.control}
+                render={({field}) => (
+                  <FormItem>
+                    <FormLabel>Мінімальний крок kW</FormLabel>
+                    <FormControl>
+                      <Input
+                        {...field}
+                        disabled={isPending}
+                      />
+                    </FormControl>
+                    <FormMessage/>
+                  </FormItem>
+                )}/>
+              <FormField
+                name='stepKwMax'
+                control={form.control}
+                render={({field}) => (
+                  <FormItem>
+                    <FormLabel>Максимальний крок kW</FormLabel>
+                    <FormControl>
+                      <Input
+                        {...field}
+                        disabled={isPending}
+                      />
+                    </FormControl>
+                    <FormMessage/>
+                  </FormItem>
+                )}/>
             </div>
             <FormError message={error}/>
             <FormSuccess message={success}/>

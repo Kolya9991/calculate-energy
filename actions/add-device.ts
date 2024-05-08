@@ -11,7 +11,7 @@ export const addDevice = async (values: z.infer<typeof DeviceSchema>) => {
     return {error: 'Невірно заповненні поля'}
   }
 
-  const {nameDevice, maxKwMonth, kwMax, stepKw, kwMin} = validatedFields.data;
+  const {nameDevice, maxKwMonth, kwMax, stepKw, kwMin, stepKwMax, stepKwMin} = validatedFields.data;
   if (validatedFields.success) {
     await db.device.create({
       data: {
@@ -20,6 +20,8 @@ export const addDevice = async (values: z.infer<typeof DeviceSchema>) => {
         kwMax,
         stepKw,
         maxKwMonth,
+        stepKwMin,
+        stepKwMax
       }
     })
     return {success: 'Пристрій успішно додано'}

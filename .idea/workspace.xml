@@ -4,13 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bf4ec1fc-e48d-4545-af1b-64be8bbd48ae" name="Changes" comment="change lable">
-      <change afterPath="$PROJECT_DIR$/components/export-template/ExportTemplate.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/excel.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/excelIcon.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/wordIcon.svg" afterDir="false" />
+    <list default="true" id="bf4ec1fc-e48d-4545-af1b-64be8bbd48ae" name="Changes" comment="add functionality for export template docx,  xlsx file">
+      <change afterPath="$PROJECT_DIR$/components/energy-calculate/EnergyCalculator.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/ui/slider.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/actions/add-device.ts" beforeDir="false" afterPath="$PROJECT_DIR$/actions/add-device.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/actions/update-device.ts" beforeDir="false" afterPath="$PROJECT_DIR$/actions/update-device.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/(protected)/client/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(protected)/client/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/add-new-device/AddNewDevice.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/add-new-device/AddNewDevice.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/all-device/AllDevice.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/all-device/AllDevice.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/calc-form/CalcForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/calc-form/CalcForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/update-device/UpdateDevice.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/update-device/UpdateDevice.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prisma/schema.prisma" beforeDir="false" afterPath="$PROJECT_DIR$/prisma/schema.prisma" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schemas/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/schemas/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/types/calculateDevice/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/types/calculateDevice/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/types/device.ts" beforeDir="false" afterPath="$PROJECT_DIR$/types/device.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,6 +30,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "Kolya9991"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/Kolya9991/calculate-energy.git",
+    "accountId": "4120f583-6793-4ca2-ae53-ae6e0de1f0ee"
+  }
+}]]></component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/node_modules/.prisma/client/index.d.ts" root0="SKIP_INSPECTION" />
   </component>
@@ -104,7 +126,9 @@
       <workItem from="1714630675469" duration="2789000" />
       <workItem from="1714713164153" duration="8551000" />
       <workItem from="1714730461907" duration="5523000" />
-      <workItem from="1715056736338" duration="3514000" />
+      <workItem from="1715056736338" duration="6541000" />
+      <workItem from="1715099172150" duration="953000" />
+      <workItem from="1715141315486" duration="2406000" />
     </task>
     <task id="LOCAL-00001" summary="add needed folders">
       <option name="closed" value="true" />
@@ -226,7 +250,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715057317745</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="add functionality for export template docx,  xlsx file">
+      <option name="closed" value="true" />
+      <created>1715062399290</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1715062399290</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -250,6 +282,7 @@
     <MESSAGE value="create updating device page" />
     <MESSAGE value="add component ImportDevices" />
     <MESSAGE value="change lable" />
-    <option name="LAST_COMMIT_MESSAGE" value="change lable" />
+    <MESSAGE value="add functionality for export template docx,  xlsx file" />
+    <option name="LAST_COMMIT_MESSAGE" value="add functionality for export template docx,  xlsx file" />
   </component>
 </project>
