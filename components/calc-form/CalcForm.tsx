@@ -6,9 +6,9 @@ import FormSuccess from "@/components/FormSuccess";
 import {Button} from "@/components/ui/button";
 import {useForm} from "react-hook-form";
 import * as z from "zod";
-import {DeviceSchema} from "@/schemas";
+import {CalculateDevices} from "@/schemas";
 import {zodResolver} from "@hookform/resolvers/zod";
-import {addDevice} from "@/actions/add-device";
+import {calculateCreate} from "@/actions/calculate-create";
 
 interface ICalcFormProps {
 }
@@ -17,24 +17,24 @@ const CalcForm: FC<ICalcFormProps> = ({}) => {
   const [error, setError] = useState<string | undefined>('');
   const [success, setSuccess] = useState<string | undefined>('');
   const [isPending, startTransition] = useTransition()
-  const form = useForm<z.infer<typeof DeviceSchema>>({
-    resolver: zodResolver(DeviceSchema),
+  const form = useForm<z.infer<typeof CalculateDevices>>({
+    resolver: zodResolver(CalculateDevices),
     defaultValues: {
       id: '',
       nameDevice: '',
-      kwMin: '0',
-      kwMax: '0',
-      stepKw: '0.01',
-      maxKwMonth: '10',
+      count: '0',
+      hoursWork: '0',
+      period: '0.01',
+      kw: '10',
+      kwMonth: '10',
     },
   })
 
-  const onSubmit = (values: z.infer<typeof DeviceSchema>) => {
+  const onSubmit = (values: z.infer<typeof CalculateDevices>) => {
     setError('')
     setSuccess('')
     startTransition(() => {
-      console.log(values)
-      addDevice(values)
+      calculateCreate(values)
         .then((data) => {
           setError(data?.error);
           setSuccess(data?.success);
@@ -62,11 +62,11 @@ const CalcForm: FC<ICalcFormProps> = ({}) => {
                 </FormItem>
               )}/>
             <FormField
-              name='kwMin'
+              name='count'
               control={form.control}
               render={({field}) => (
                 <FormItem>
-                  <FormLabel>кВт Мін.</FormLabel>
+                  <FormLabel>Кількість</FormLabel>
                   <FormControl>
                     <Input
                       {...field}
@@ -77,11 +77,11 @@ const CalcForm: FC<ICalcFormProps> = ({}) => {
                 </FormItem>
               )}/>
             <FormField
-              name='kwMax'
+              name='hoursWork'
               control={form.control}
               render={({field}) => (
                 <FormItem>
-                  <FormLabel>кВт Макс.</FormLabel>
+                  <FormLabel>Часи роботи</FormLabel>
                   <FormControl>
                     <Input
                       {...field}
@@ -92,11 +92,11 @@ const CalcForm: FC<ICalcFormProps> = ({}) => {
                 </FormItem>
               )}/>
             <FormField
-              name='stepKw'
+              name='period'
               control={form.control}
               render={({field}) => (
                 <FormItem>
-                  <FormLabel>Шаг кВт</FormLabel>
+                  <FormLabel>Період</FormLabel>
                   <FormControl>
                     <Input
                       {...field}
@@ -107,11 +107,26 @@ const CalcForm: FC<ICalcFormProps> = ({}) => {
                 </FormItem>
               )}/>
             <FormField
-              name='maxKwMonth'
+              name='kw'
               control={form.control}
               render={({field}) => (
                 <FormItem>
-                  <FormLabel>Макс кВт</FormLabel>
+                  <FormLabel>кВт</FormLabel>
+                  <FormControl>
+                    <Input
+                      {...field}
+                      disabled={isPending}
+                    />
+                  </FormControl>
+                  <FormMessage/>
+                </FormItem>
+              )}/>
+            <FormField
+              name='kwMonth'
+              control={form.control}
+              render={({field}) => (
+                <FormItem>
+                  <FormLabel>кВт в місяць</FormLabel>
                   <FormControl>
                     <Input
                       {...field}
@@ -125,7 +140,7 @@ const CalcForm: FC<ICalcFormProps> = ({}) => {
           <FormError message={error}/>
           <FormSuccess message={success}/>
           <Button type='submit' className='w-full'>
-            Додати пристрій
+            Розрахувати
           </Button>
         </form>
       </Form>

@@ -59,7 +59,7 @@ export const CalculateDevices = z.object({
   id: z.string(),
   nameDevice: z.string().min(1),
   count: z.string(),
-  hourWork: z.string(),
+  hoursWork: z.string(),
   period: z.string(),
   kw: z.string(),
   kwMonth: z.string(),
