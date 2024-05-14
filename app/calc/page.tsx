@@ -1,7 +1,7 @@
 const CalcPage = () => {
   return (
     <div>
-      calc page
+      <h1>calc page</h1>
     </div>
   );
 };
