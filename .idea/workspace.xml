@@ -4,14 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bf4ec1fc-e48d-4545-af1b-64be8bbd48ae" name="Changes" comment="create calc form">
-      <change afterPath="$PROJECT_DIR$/__tests__/testing.test.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jest.config.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jest.setup.ts" afterDir="false" />
+    <list default="true" id="bf4ec1fc-e48d-4545-af1b-64be8bbd48ae" name="Changes" comment="add lib for testing">
+      <change afterPath="$PROJECT_DIR$/app/about-us/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/aboutUs.webp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/calc/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/calc/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,6 +57,7 @@
     "nodejs_package_manager_path": "npm",
     "npm.dev.executor": "Run",
     "npm.test.executor": "Run",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
     "ts.external.directory.path": "E:\\calculate-energy-diplom-full\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   }
@@ -77,7 +74,7 @@
       <recent name="E:\calculate-energy-diplom-full\app" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.test">
+  <component name="RunManager" selected="npm.dev">
     <configuration name="dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -100,15 +97,15 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.test" />
         <item itemvalue="npm.dev" />
+        <item itemvalue="npm.test" />
       </list>
     </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-1d06a55b98c1-2e7d6887c066-JavaScript-WS-241.15989.47" />
+        <option value="bundled-js-predefined-1d06a55b98c1-91d5c284f522-JavaScript-WS-241.15989.105" />
       </set>
     </attachedChunks>
   </component>
@@ -135,6 +132,10 @@
       <workItem from="1715141315486" duration="4363000" />
       <workItem from="1715173216087" duration="19000" />
       <workItem from="1715517837909" duration="3381000" />
+      <workItem from="1715695164272" duration="284000" />
+      <workItem from="1715708685686" duration="246000" />
+      <workItem from="1715708986928" duration="23000" />
+      <workItem from="1715709165306" duration="1338000" />
     </task>
     <task id="LOCAL-00001" summary="add needed folders">
       <option name="closed" value="true" />
@@ -280,7 +281,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715145742966</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="add lib for testing">
+      <option name="closed" value="true" />
+      <created>1715695412669</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1715695412669</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -307,6 +316,7 @@
     <MESSAGE value="add functionality for export template docx,  xlsx file" />
     <MESSAGE value="updated model Device and all place where using add, update, delete (CRUD)&#10;begin work at calculator energy&#10;add slider" />
     <MESSAGE value="create calc form" />
-    <option name="LAST_COMMIT_MESSAGE" value="create calc form" />
+    <MESSAGE value="add lib for testing" />
+    <option name="LAST_COMMIT_MESSAGE" value="add lib for testing" />
   </component>
 </project>

@@ -81,3 +81,42 @@ body,
         @apply bg-background text-foreground;
     }
 }
+
+/* Додаємо класи для анімацій */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card {
+    animation: fadeInUp 0.5s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    transition: transform 0.2s;
+}
+
+/* Анімації для кнопок експорту */
+@keyframes buttonHover {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.05);
+    }
+}
+
+.export-button {
+    transition: transform 0.2s ease-in-out;
+}
+
+.export-button:hover {
+    animation: buttonHover 0.2s forwards;
+}
