@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bf4ec1fc-e48d-4545-af1b-64be8bbd48ae" name="Changes" comment="add page faq&#10;add lib:&#10; - accordion">
+    <list default="true" id="bf4ec1fc-e48d-4545-af1b-64be8bbd48ae" name="Changes" comment="fix calculation for user">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/actions/calculate-create.ts" beforeDir="false" afterPath="$PROJECT_DIR$/actions/calculate-create.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(protected)/client/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(protected)/client/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/calc-form/CalcForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/calc-form/CalcForm.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -138,7 +137,7 @@
       <workItem from="1715709165306" duration="5187000" />
       <workItem from="1715769575566" duration="73000" />
       <workItem from="1715793753415" duration="59000" />
-      <workItem from="1715873624869" duration="2570000" />
+      <workItem from="1715873624869" duration="6038000" />
     </task>
     <task id="LOCAL-00001" summary="add needed folders">
       <option name="closed" value="true" />
@@ -308,7 +307,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715713381062</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="fix calculation for user">
+      <option name="closed" value="true" />
+      <created>1715880521530</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1715880521530</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -338,6 +345,7 @@
     <MESSAGE value="add lib for testing" />
     <MESSAGE value="add page about us&#10;add image aboutUs.webp" />
     <MESSAGE value="add page faq&#10;add lib:&#10; - accordion" />
-    <option name="LAST_COMMIT_MESSAGE" value="add page faq&#10;add lib:&#10; - accordion" />
+    <MESSAGE value="fix calculation for user" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix calculation for user" />
   </component>
 </project>
