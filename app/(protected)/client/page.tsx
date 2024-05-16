@@ -9,9 +9,9 @@ const ClientPage = () => {
   const user = useCurrentUser()
   return (
     <>
-      <UserInfo label='client compoent' user={user}/>
-      <ExportTemplate/>
-      <EnergyCalculator/>
+      {/*<UserInfo label='client compoent' user={user}/>*/}
+      {/*<ExportTemplate/>*/}
+      {/*<EnergyCalculator/>*/}
       <CalcForm/>
     </>
   );
