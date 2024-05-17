@@ -8,7 +8,7 @@ interface IProtectedLayoutProps {
 const ProtectedLayout: FC<IProtectedLayoutProps> = ({children}) => {
   return (
     <div
-      className='h-full w-full flex flex-col gap-y-10 items-center justify-center bg-gradient-to-b from-sky-400 via-sky-500 to-blue-800'>
+      className='h-full w-full flex flex-col gap-y-10 items-center'>
       <Navbar/>
       {children}
     </div>

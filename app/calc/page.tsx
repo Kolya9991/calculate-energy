@@ -1,7 +1,9 @@
+import CalcForm from "@/components/calc-form/CalcForm";
+
 const CalcPage = () => {
   return (
-    <div>
-      <h1>calc page</h1>
+    <div className='mt-6'>
+      <CalcForm/>
     </div>
   );
 };

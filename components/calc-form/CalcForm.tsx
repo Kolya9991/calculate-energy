@@ -1,3 +1,4 @@
+'use client'
 import {FC, useEffect, useState, useTransition} from 'react';
 import {Form, FormControl, FormField, FormItem, FormLabel, FormMessage} from "@/components/ui/form";
 import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@/components/ui/select";
@@ -96,81 +97,83 @@ const CalcForm: FC<ICalcFormProps> = ({}) => {
                 </FormItem>
               )}
             />
-            <FormField
-              name="count"
-              control={form.control}
-              render={({field}) => (
-                <FormItem>
-                  <FormLabel>Кількість</FormLabel>
-                  <FormControl>
-                    <Input {...field} disabled={isPending}/>
-                  </FormControl>
-                  <FormMessage/>
-                </FormItem>
-              )}
-            />
-            <FormField
-              name="hoursWork"
-              control={form.control}
-              render={({field}) => (
-                <FormItem>
-                  <FormLabel>Часи роботи</FormLabel>
-                  <FormControl>
-                    <Input {...field} disabled={isPending}/>
-                  </FormControl>
-                  <FormMessage/>
-                </FormItem>
-              )}
-            />
-            <FormField
-              name="period"
-              control={form.control}
-              render={({field}) => (
-                <FormItem>
-                  <FormLabel>Період</FormLabel>
-                  <FormControl>
-                    <Input {...field} disabled={isPending}/>
-                  </FormControl>
-                  <FormMessage/>
-                </FormItem>
-              )}
-            />
-            <FormField
-              name="kw"
-              control={form.control}
-              render={({field}) => (
-                <FormItem>
-                  <FormLabel>кВт</FormLabel>
-                  <FormControl>
-                    <Slider
-                      value={[Number(field.value)]}
-                      step={Number(selectedDevice?.stepKw) || 1}
-                      max={Number(selectedDevice?.stepKwMax) || 100}
-                      onValueChange={(value) => {
-                        field.onChange(String(value[0]));
-                        setCurrentKw(value[0]); // Update the current kW value
-                      }}
-                      disabled={isPending}
-                    />
-                  </FormControl>
-                  <div className="mt-2 text-sm text-gray-500">Current kW: {currentKw}</div>
-                  <FormMessage/>
-                </FormItem>
-              )}
-            />
-            <FormField
-              name="kwMonth"
-              control={form.control}
-              render={({field}) => (
-                <FormItem>
-                  <FormLabel>кВт в місяць</FormLabel>
-                  <FormControl>
-                    <Input {...field} disabled={isPending}/>
-                  </FormControl>
-                  <FormMessage/>
-                </FormItem>
-              )}
-            />
+            {selectedDevice ? <>
+              <FormField
+                name="count"
+                control={form.control}
+                render={({field}) => (
+                  <FormItem>
+                    <FormLabel>Кількість</FormLabel>
+                    <FormControl>
+                      <Input {...field} disabled={isPending}/>
+                    </FormControl>
+                    <FormMessage/>
+                  </FormItem>
+                )}
+              />
+              <FormField
+                name="hoursWork"
+                control={form.control}
+                render={({field}) => (
+                  <FormItem>
+                    <FormLabel>Часи роботи</FormLabel>
+                    <FormControl>
+                      <Input {...field} disabled={isPending}/>
+                    </FormControl>
+                    <FormMessage/>
+                  </FormItem>
+                )}
+              />
+              <FormField
+                name="period"
+                control={form.control}
+                render={({field}) => (
+                  <FormItem>
+                    <FormLabel>Період</FormLabel>
+                    <FormControl>
+                      <Input {...field} disabled={isPending}/>
+                    </FormControl>
+                    <FormMessage/>
+                  </FormItem>
+                )}
+              />
+              <FormField
+                name="kw"
+                control={form.control}
+                render={({field}) => (
+                  <FormItem>
+                    <FormLabel>кВт</FormLabel>
+                    <FormControl>
+                      <Slider
+                        value={[Number(field.value)]}
+                        step={Number(selectedDevice?.stepKw) || 1}
+                        max={Number(selectedDevice?.stepKwMax) || 100}
+                        onValueChange={(value) => {
+                          field.onChange(String(value[0]));
+                          setCurrentKw(value[0]); // Update the current kW value
+                        }}
+                        disabled={isPending}
+                      />
+                    </FormControl>
+                    <div className="mt-2 text-sm text-gray-500">Current kW: {currentKw}</div>
+                    <FormMessage/>
+                  </FormItem>
+                )}
+              />
+              <FormField
+                name="kwMonth"
+                control={form.control}
+                render={({field}) => (
+                  <FormItem>
+                    <FormLabel>кВт в місяць</FormLabel>
+                    <FormControl>
+                      <Input {...field} disabled={isPending}/>
+                    </FormControl>
+                    <FormMessage/>
+                  </FormItem>
+                )}
+              />
+            </> : null}
           </div>
           <FormError message={error}/>
           <FormSuccess message={success}/>
