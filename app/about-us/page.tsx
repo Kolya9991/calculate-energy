@@ -3,7 +3,7 @@ import {Button} from "@/components/ui/button";
 import Image from 'next/image'
 const Page = () => {
   return (
-    <div className="container mx-auto py-12 px-4">
+    <div className="container mx-auto py-12 px-0">
       <h1 className="text-4xl font-bold mb-8 text-center">Про нас</h1>
       <div className="flex flex-col items-center mb-12">
         <Image src="/aboutUs.webp" alt="Наше фото" width={600} height={400} className="rounded-lg shadow-lg h-[400px]"/>
@@ -59,7 +59,7 @@ const Page = () => {
         <h2 className="text-2xl font-semibold mb-4">Експорт результатів розрахунків</h2>
         <p className="mb-8 max-w-lg mx-auto">Експортуйте результати ваших розрахунків у зручному форматі для подальшого
           використання та аналізу.</p>
-        <div className="flex justify-center space-x-4">
+        <div className="flex justify-center space-x-4 flex-wrap gap-3">
           <Button className="export-button">Експорт до DOCX</Button>
           <Button className="export-button">Експорт до Excel</Button>
           <Button className="export-button">Експорт до PDF</Button>

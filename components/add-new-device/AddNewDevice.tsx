@@ -42,7 +42,7 @@ const AddNewDevice = () => {
     })
   }
   return (
-    <Card className='w-[600px]'>
+    <Card className='w-full'>
       <CardHeader>
         <p className='text-2xl font-semibold text-center'>
           ADMIN Panel

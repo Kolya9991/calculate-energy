@@ -34,7 +34,7 @@ const AllDevice = () => {
   }
 
   return (
-    <Table className="bg-white w-auto mx-auto rounded-xl h-full">
+    <Table className="bg-white w-full md:w-auto mx-auto rounded-xl h-full">
       <TableHeader>
         <TableRow>
           {headers.map((header) => (

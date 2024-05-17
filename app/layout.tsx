@@ -5,6 +5,7 @@ import {SessionProvider} from "next-auth/react";
 import {auth} from "@/auth";
 import {ReactNode} from "react";
 import {Toaster} from "@/components/ui/sonner";
+import {clsx} from "clsx";
 
 const inter = Inter({subsets: ["latin"]});
 
@@ -22,7 +23,7 @@ export default async function RootLayout({
   return (
     <SessionProvider session={session}>
       <html lang="en">
-      <body className={inter.className}>
+      <body className={clsx(inter.className, 'px-3 py-2')}>
       <Toaster/>
       {children}
       </body>
