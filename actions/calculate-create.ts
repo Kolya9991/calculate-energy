@@ -1,19 +1,20 @@
 'use server';
 import * as z from 'zod';
-import {db} from '@/lib/db';
-import {CalculateDevices} from "@/schemas";
-import {currentUser} from "@/lib/auth-lib";
+import { db } from '@/lib/db';
+import { CalculateDevices } from "@/schemas";
+import { currentUser } from "@/lib/auth-lib";
 
+// Existing create function
 export const calculateCreate = async (values: z.infer<typeof CalculateDevices>) => {
-  if (!values) return {error: 'Відстуні дані про пристрій'};
+  if (!values) return { error: 'Відстуні дані про пристрій' };
 
   const validatedFields = CalculateDevices.safeParse(values);
 
   if (!validatedFields.success) {
-    return {error: 'Невірно заповненні поля'}
+    return { error: 'Невірно заповненні поля' }
   }
-  const user = await currentUser()
-  const {id, nameDevice, kw, kwMonth, period, hoursWork, count} = validatedFields.data;
+  const user = await currentUser();
+  const { nameDevice, kw, kwMonth, period, hoursWork, count } = validatedFields.data;
 
   if (validatedFields.success) {
     await db.calculate.create({
@@ -26,7 +27,40 @@ export const calculateCreate = async (values: z.infer<typeof CalculateDevices>) 
         kw,
         kwMonth
       }
-    })
-    return {success: 'success'}
+    });
+    return { success: 'success' }
   }
+}
+
+export const calculateCreateMany = async (devices: z.infer<typeof CalculateDevices>[]) => {
+  if (!devices || devices.length === 0) return { error: 'Відстуні дані про пристрої' };
+
+  const validatedDevices = devices.map(device => CalculateDevices.safeParse(device));
+
+  const invalidDevices = validatedDevices.filter(device => !device.success);
+
+  if (invalidDevices.length > 0) {
+    return { error: 'Невірно заповненні поля в деяких пристроях' }
+  }
+
+  const user = await currentUser();
+
+  const dataToCreate = validatedDevices
+    .filter(device => device.success)
+    .map(device => ({
+      userId: user?.id as string,
+      nameDevice: device?.data?.nameDevice as string,
+      count: device?.data?.count as string,
+      hoursWork: device?.data?.hoursWork as string,
+      period: device?.data?.period as string,
+      kw: device?.data?.kw as string,
+      kwMonth: device?.data?.kwMonth as string,
+    }));
+
+  await db.calculate.createMany({
+    data: dataToCreate,
+    skipDuplicates: true
+  });
+
+  return { success: 'success' }
 }

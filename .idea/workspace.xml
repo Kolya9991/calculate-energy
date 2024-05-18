@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bf4ec1fc-e48d-4545-af1b-64be8bbd48ae" name="Changes" comment="update navbar:&#10; - add new path&#10; - add layout for all page">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="bf4ec1fc-e48d-4545-af1b-64be8bbd48ae" name="Changes" comment="add sheet for show menu in mobile device&#10;fix style:&#10; - made adaptive in all pages&#10; - fix style for admin side">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/actions/calculate-create.ts" beforeDir="false" afterPath="$PROJECT_DIR$/actions/calculate-create.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(protected)/admin/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(protected)/admin/page.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -139,7 +140,8 @@
       <workItem from="1715793753415" duration="59000" />
       <workItem from="1715873624869" duration="6238000" />
       <workItem from="1715936830125" duration="4836000" />
-      <workItem from="1715948641806" duration="397000" />
+      <workItem from="1715948641806" duration="5680000" />
+      <workItem from="1716042279382" duration="1628000" />
     </task>
     <task id="LOCAL-00001" summary="add needed folders">
       <option name="closed" value="true" />
@@ -333,7 +335,23 @@
       <option name="project" value="LOCAL" />
       <updated>1715941372711</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="update gitignore file">
+      <option name="closed" value="true" />
+      <created>1715949223914</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1715949223914</updated>
+    </task>
+    <task id="LOCAL-00026" summary="add sheet for show menu in mobile device&#10;fix style:&#10; - made adaptive in all pages&#10; - fix style for admin side">
+      <option name="closed" value="true" />
+      <created>1715959362429</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1715959362429</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -341,8 +359,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="add needed folders" />
-    <MESSAGE value="add export to pdf" />
     <MESSAGE value="add export to pdf&#10;add config to .gitignore&#10;install package: jspdf&#10;add font Roboto to correct showing pdf charset" />
     <MESSAGE value="add export to word&#10;install libs:&#10; - docx&#10; - file-saver" />
     <MESSAGE value="add export to excel&#10;install lib:&#10; - xlsx" />
@@ -366,6 +382,8 @@
     <MESSAGE value="fix calculation for user" />
     <MESSAGE value="update calc form,&#10;add slider&#10;add select to choose device, period" />
     <MESSAGE value="update navbar:&#10; - add new path&#10; - add layout for all page" />
-    <option name="LAST_COMMIT_MESSAGE" value="update navbar:&#10; - add new path&#10; - add layout for all page" />
+    <MESSAGE value="update gitignore file" />
+    <MESSAGE value="add sheet for show menu in mobile device&#10;fix style:&#10; - made adaptive in all pages&#10; - fix style for admin side" />
+    <option name="LAST_COMMIT_MESSAGE" value="add sheet for show menu in mobile device&#10;fix style:&#10; - made adaptive in all pages&#10; - fix style for admin side" />
   </component>
 </project>
