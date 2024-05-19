@@ -58,7 +58,7 @@ const ImportDevices: FC<ImportDevicesProps> = ({ onImport }) => {
   return (
     <div className='mt-3 mb-8'>
       <form onSubmit={handleSubmit}>
-        <input type="file" onChange={handleFileChange} accept=".xlsx, .docx" />
+        <input type="file" onChange={handleFileChange} accept=".xlsx" />
       </form>
     </div>
   );
