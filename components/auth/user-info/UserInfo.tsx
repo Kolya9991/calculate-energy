@@ -61,7 +61,7 @@ const UserInfo: FC<IUserInfoProps> = ({ user}) => {
 
   if (!calculate.length) {
     return (
-      <SkeletonTable />
+      <EmptyCalculateData/>
     );
   }
 
@@ -115,7 +115,7 @@ const UserInfo: FC<IUserInfoProps> = ({ user}) => {
             <ExportToPdfButton data={getSelectedData()} />
           </div>
         </div>
-      ) : <EmptyCalculateData/>}
+      ) : <SkeletonTable />}
     </>
   );
 };
