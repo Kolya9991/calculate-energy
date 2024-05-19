@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bf4ec1fc-e48d-4545-af1b-64be8bbd48ae" name="Changes" comment="add sheet for show menu in mobile device&#10;fix style:&#10; - made adaptive in all pages&#10; - fix style for admin side">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/actions/calculate-create.ts" beforeDir="false" afterPath="$PROJECT_DIR$/actions/calculate-create.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(protected)/admin/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(protected)/admin/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/calc/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/calc/page.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -142,6 +140,7 @@
       <workItem from="1715936830125" duration="4836000" />
       <workItem from="1715948641806" duration="5680000" />
       <workItem from="1716042279382" duration="1628000" />
+      <workItem from="1716099978356" duration="695000" />
     </task>
     <task id="LOCAL-00001" summary="add needed folders">
       <option name="closed" value="true" />
