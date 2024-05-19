@@ -6,7 +6,7 @@ const ClientPage = () => {
   const user = useCurrentUser()
   return (
 
-    <UserInfo label='' user={user}/>
+    <UserInfo user={user}/>
 
   );
 };

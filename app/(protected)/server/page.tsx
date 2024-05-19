@@ -4,7 +4,7 @@ import UserInfo from "@/components/auth/user-info/UserInfo";
 const ServerPage = async () => {
   const user = await currentUser()
   return (
-    <UserInfo label='Server compoent' user={user}/>
+    <UserInfo  user={user}/>
   );
 };
 

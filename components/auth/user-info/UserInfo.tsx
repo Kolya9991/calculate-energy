@@ -7,7 +7,6 @@ import {getCalculate} from "@/actions/calculate";
 import EmptyCalculateData from "@/components/empty-calculate/EmptyCalculateData";
 import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow} from "@/components/ui/table";
 import {Checkbox} from "@/components/ui/checkbox";
-import {Skeleton} from "@/components/ui/skeleton";
 import SkeletonTable from "@/components/auth/user-info/skeleton-table/SkeletonTable";
 import ExportToXLSXButton from "@/components/export-to-xlsx/ExportToXLSXButton";
 import ExportToDocxButton from "@/components/export-to-docx/ExportToDocxButton";
@@ -15,12 +14,11 @@ import ExportToPdfButton from "@/components/export-to-pdf/ExportToPDFButton";
 
 interface IUserInfoProps {
   user?: ExtendedUser
-  label: string;
 }
 
 const CalculateSchema = z.array(CalculateDevices);
 
-const UserInfo: FC<IUserInfoProps> = ({label, user}) => {
+const UserInfo: FC<IUserInfoProps> = ({ user}) => {
   const [calculate, setCalculate] = useState<z.infer<typeof CalculateSchema>>([]);
   const [selectedItems, setSelectedItems] = useState<number[]>([]);
   const [isAllSelected, setIsAllSelected] = useState(false);
@@ -57,6 +55,9 @@ const UserInfo: FC<IUserInfoProps> = ({label, user}) => {
     }
   };
 
+  const getSelectedData = () => {
+    return selectedItems.map(index => calculate[index]);
+  };
 
   if (!calculate.length) {
     return (
@@ -75,7 +76,7 @@ const UserInfo: FC<IUserInfoProps> = ({label, user}) => {
 
   return (
     <>
-      {calculate.length ? (
+      {calculate ? (
         <div className='overflow-x-auto w-full'>
           <Table className='bg-white min-w-[600px] mx-auto rounded-xl h-full'>
             <TableHeader>
@@ -109,14 +110,12 @@ const UserInfo: FC<IUserInfoProps> = ({label, user}) => {
           </Table>
 
           <div className='flex gap-2 mt-8 justify-center flex-wrap'>
-            <ExportToXLSXButton data={calculate}/>
-            <ExportToDocxButton data={calculate}/>
-            <ExportToPdfButton data={calculate}/>
+            <ExportToXLSXButton data={getSelectedData()} />
+            <ExportToDocxButton data={getSelectedData()} />
+            <ExportToPdfButton data={getSelectedData()} />
           </div>
         </div>
       ) : <EmptyCalculateData/>}
-
-
     </>
   );
 };
