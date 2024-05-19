@@ -10,9 +10,13 @@ import { Document, Packer, Paragraph, Table, TableCell, TableRow, WidthType } fr
 import { saveAs } from 'file-saver';
 import * as XLSX from 'xlsx';
 import {excelIcon, headers, headersXlsxTemplate, wordIcon} from "@/constans";
+import {FC} from "react";
 
-
-const ExportTemplate = () => {
+interface IExportTemplateProps {
+  disabledExcelTemplate?: boolean;
+  disabledWordTemplate?: boolean;
+}
+const ExportTemplate: FC<IExportTemplateProps> = ({disabledExcelTemplate, disabledWordTemplate}) => {
 
   const exportWordTemplate = () => {
     const headerRow = new TableRow({
@@ -40,17 +44,17 @@ const ExportTemplate = () => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost" className="w-max">
-          Виберіть формат для імпорту власних даних
+        <Button className="w-max">
+          Виберіть формат файлу, для шаблону
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="center">
         <DropdownMenuLabel>Формат файла</DropdownMenuLabel>
-        <DropdownMenuItem onClick={exportWordTemplate}>
+        <DropdownMenuItem onClick={exportWordTemplate} disabled={disabledWordTemplate}>
           <img src={wordIcon} width="24" height="24" alt="Word Icon" style={{marginRight: 8}}/>
           Word file
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={exportExcelTemplate}>
+        <DropdownMenuItem onClick={exportExcelTemplate} disabled={disabledExcelTemplate}>
           <img src={excelIcon} width="24" height="24" alt="Excel Icon" style={{marginRight: 8}}/>
           Excel file
         </DropdownMenuItem>

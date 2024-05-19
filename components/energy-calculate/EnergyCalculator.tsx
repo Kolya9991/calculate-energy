@@ -15,6 +15,7 @@ import { getDevices } from "@/actions/getDevices";
 import { Input } from "@/components/ui/input";
 import { periodOptions } from "@/constans";
 import ImportDevices from "@/components/import-devices/ImportDevices";
+import ExportTemplate from "@/components/export-template/ExportTemplate";
 
 const DevicesSchema = z.array(DeviceSchema);
 
@@ -102,7 +103,10 @@ const EnergyCalculator: FC = () => {
 
   return (
     <div className="container mx-auto p-4">
-      <ImportDevices onImport={handleImport} />
+      <div className='flex gap-x-2 items-center'>
+        <ImportDevices onImport={handleImport} />
+        <ExportTemplate disabledWordTemplate/>
+      </div>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
           <div className="space-y-4">
