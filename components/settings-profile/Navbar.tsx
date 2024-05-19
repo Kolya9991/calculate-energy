@@ -1,11 +1,12 @@
 'use client';
-import { Button } from "@/components/ui/button";
+import {Button} from "@/components/ui/button";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import {usePathname} from "next/navigation";
 import UserButton from "@/components/auth/userButton";
-import { useCurrentUser } from "@/hooks/useCurrentUser";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"; // Adjust the import based on your file structure
-import { useState } from 'react';
+import {useCurrentUser} from "@/hooks/useCurrentUser";
+import {Sheet, SheetContent, SheetTrigger} from "@/components/ui/sheet"; // Adjust the import based on your file structure
+import {useState} from 'react';
+import {ThemeToggle} from "@/components/ThemeToggle";
 
 const Navbar = () => {
   const pathname = usePathname();
@@ -45,21 +46,27 @@ const Navbar = () => {
   return (
     <nav className='bg-secondary flex justify-between items-center p-4 rounded-xl w-full shadow-md'>
       <div className='hidden md:flex'>
-        <NavContent />
+        <NavContent/>
       </div>
       <div className='md:hidden flex-col'>
         <Sheet open={open} onOpenChange={setOpen}>
           <SheetTrigger asChild>
             <Button onClick={() => setOpen(true)} className='p-2'>
-              <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+              <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"
+                   strokeLinejoin="round" className="feather feather-menu">
+                <line x1="3" y1="12" x2="21" y2="12"/>
+                <line x1="3" y1="6" x2="21" y2="6"/>
+                <line x1="3" y1="18" x2="21" y2="18"/>
+              </svg>
             </Button>
           </SheetTrigger>
           <SheetContent side='left'>
-            <NavContent />
+            <NavContent/>
           </SheetContent>
         </Sheet>
       </div>
-      <UserButton />
+      <ThemeToggle />
+      <UserButton/>
     </nav>
   );
 };
