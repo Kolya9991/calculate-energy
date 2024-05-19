@@ -1,20 +1,20 @@
 'use server';
 import * as z from 'zod';
-import { db } from '@/lib/db';
-import { CalculateDevices } from "@/schemas";
-import { currentUser } from "@/lib/auth-lib";
+import {db} from '@/lib/db';
+import {CalculateDevices} from "@/schemas";
+import {currentUser} from "@/lib/auth-lib";
 
 // Existing create function
-export const calculateCreate = async (values: z.infer<typeof CalculateDevices>) => {
-  if (!values) return { error: 'Відстуні дані про пристрій' };
+export const calculate = async (values: z.infer<typeof CalculateDevices>) => {
+  if (!values) return {error: 'Відстуні дані про пристрій'};
 
   const validatedFields = CalculateDevices.safeParse(values);
 
   if (!validatedFields.success) {
-    return { error: 'Невірно заповненні поля' }
+    return {error: 'Невірно заповненні поля'}
   }
   const user = await currentUser();
-  const { nameDevice, kw, kwMonth, period, hoursWork, count } = validatedFields.data;
+  const {nameDevice, kw, kwMonth, period, hoursWork, count} = validatedFields.data;
 
   if (validatedFields.success) {
     await db.calculate.create({
@@ -28,19 +28,19 @@ export const calculateCreate = async (values: z.infer<typeof CalculateDevices>) 
         kwMonth
       }
     });
-    return { success: 'success' }
+    return {success: 'success'}
   }
 }
 
 export const calculateCreateMany = async (devices: z.infer<typeof CalculateDevices>[]) => {
-  if (!devices || devices.length === 0) return { error: 'Відстуні дані про пристрої' };
+  if (!devices || devices.length === 0) return {error: 'Відстуні дані про пристрої'};
 
   const validatedDevices = devices.map(device => CalculateDevices.safeParse(device));
 
   const invalidDevices = validatedDevices.filter(device => !device.success);
 
   if (invalidDevices.length > 0) {
-    return { error: 'Невірно заповненні поля в деяких пристроях' }
+    return {error: 'Невірно заповненні поля в деяких пристроях'}
   }
 
   const user = await currentUser();
@@ -62,5 +62,12 @@ export const calculateCreateMany = async (devices: z.infer<typeof CalculateDevic
     skipDuplicates: true
   });
 
-  return { success: 'success' }
+  return {success: 'success'}
+}
+
+export const getCalculate = async (userId?: string) => {
+  const getAllCalculate = await db.calculate.findMany({
+    where: {userId}
+  })
+  return getAllCalculate;
 }

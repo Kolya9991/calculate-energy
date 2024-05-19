@@ -10,7 +10,7 @@ import {useForm} from "react-hook-form";
 import * as z from "zod";
 import {CalculateDevices, DeviceSchema} from "@/schemas";
 import {zodResolver} from "@hookform/resolvers/zod";
-import {calculateCreate} from "@/actions/calculate-create";
+import {calculate} from "@/actions/calculate";
 import {getDevices} from "@/actions/getDevices";
 import {Input} from "@/components/ui/input";
 
@@ -43,7 +43,7 @@ const CalcForm: FC<ICalcFormProps> = ({}) => {
     setError('');
     setSuccess('');
     startTransition(() => {
-      calculateCreate(values).then((data) => {
+      calculate(values).then((data) => {
         setError(data?.error);
         setSuccess(data?.success);
       });

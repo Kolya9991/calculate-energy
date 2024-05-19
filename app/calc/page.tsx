@@ -1,6 +1,7 @@
 import CalcForm from "@/components/calc-form/CalcForm";
 import {Tabs, TabsContent, TabsList, TabsTrigger} from "@/components/ui/tabs";
 import EnergyCalculator from "@/components/energy-calculate/EnergyCalculator";
+import ExportTemplate from "@/components/export-template/ExportTemplate";
 
 const CalcPage = () => {
   return (
@@ -16,6 +17,7 @@ const CalcPage = () => {
         <TabsContent value='one' className='w-full'><CalcForm/></TabsContent>
         <TabsContent value='two' className='w-full'><EnergyCalculator/></TabsContent>
       </Tabs>
+      {/*<ExportTemplate/>*/}
     </div>
   );
 };

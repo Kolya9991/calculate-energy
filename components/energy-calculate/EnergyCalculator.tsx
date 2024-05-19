@@ -10,7 +10,7 @@ import { useForm, useFieldArray } from "react-hook-form";
 import * as z from "zod";
 import { CalculateDevices, DeviceSchema } from "@/schemas";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { calculateCreateMany } from "@/actions/calculate-create";
+import { calculateCreateMany } from "@/actions/calculate";
 import { getDevices } from "@/actions/getDevices";
 import { Input } from "@/components/ui/input";
 

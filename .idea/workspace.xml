@@ -4,8 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bf4ec1fc-e48d-4545-af1b-64be8bbd48ae" name="Changes" comment="centered text in calc">
-      <change beforePath="$PROJECT_DIR$/app/(protected)/settings/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(protected)/settings/page.tsx" afterDir="false" />
+    <list default="true" id="bf4ec1fc-e48d-4545-af1b-64be8bbd48ae" name="Changes" comment="remove choice role, left showing role only for admin, readOnly">
+      <change beforePath="$PROJECT_DIR$/actions/calculate-create.ts" beforeDir="false" afterPath="$PROJECT_DIR$/actions/calculate.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(protected)/client/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(protected)/client/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/calc/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/calc/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/auth/user-info/UserInfo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/auth/user-info/UserInfo.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/calc-form/CalcForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/calc-form/CalcForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/energy-calculate/EnergyCalculator.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/energy-calculate/EnergyCalculator.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -141,7 +146,7 @@
       <workItem from="1715948641806" duration="5680000" />
       <workItem from="1716042279382" duration="1628000" />
       <workItem from="1716099978356" duration="695000" />
-      <workItem from="1716101223639" duration="413000" />
+      <workItem from="1716101223639" duration="1973000" />
     </task>
     <task id="LOCAL-00001" summary="add needed folders">
       <option name="closed" value="true" />
@@ -359,7 +364,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716101381536</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="remove choice role, left showing role only for admin, readOnly">
+      <option name="closed" value="true" />
+      <created>1716101735200</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1716101735200</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -367,7 +380,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="add export to word&#10;install libs:&#10; - docx&#10; - file-saver" />
     <MESSAGE value="add export to excel&#10;install lib:&#10; - xlsx" />
     <MESSAGE value="create component to show PieChart" />
     <MESSAGE value="update gitignore&#10;update schema Calculate for users&#10;add schema Device for all users storage date about device" />
@@ -392,6 +404,7 @@
     <MESSAGE value="update gitignore file" />
     <MESSAGE value="add sheet for show menu in mobile device&#10;fix style:&#10; - made adaptive in all pages&#10; - fix style for admin side" />
     <MESSAGE value="centered text in calc" />
-    <option name="LAST_COMMIT_MESSAGE" value="centered text in calc" />
+    <MESSAGE value="remove choice role, left showing role only for admin, readOnly" />
+    <option name="LAST_COMMIT_MESSAGE" value="remove choice role, left showing role only for admin, readOnly" />
   </component>
 </project>
