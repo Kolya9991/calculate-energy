@@ -14,6 +14,7 @@ import { calculateCreateMany } from "@/actions/calculate";
 import { getDevices } from "@/actions/getDevices";
 import { Input } from "@/components/ui/input";
 import { periodOptions } from "@/constans";
+import ImportDevices from "@/components/import-devices/ImportDevices";
 
 const DevicesSchema = z.array(DeviceSchema);
 
@@ -45,7 +46,7 @@ const EnergyCalculator: FC = () => {
     },
   });
 
-  const { fields, append, remove } = useFieldArray({
+  const { fields, append, remove, replace } = useFieldArray({
     control: form.control,
     name: "devices"
   });
@@ -63,16 +64,19 @@ const EnergyCalculator: FC = () => {
   const onSubmit = async (values: { devices: z.infer<typeof CalculateDevices>[] }) => {
     setError('');
     setSuccess('');
-
+    console.log('onSubmit')
     startTransition(async () => {
       try {
         const data = await calculateCreateMany(values.devices);
+        console.log(values.devices)
+        console.log("Response data:", data); // Log response data
         setError(data?.error);
         setSuccess(data?.success);
         if (data?.success) {
           setIsSubmitDisabled(true);
         }
       } catch (err) {
+        console.error('Error during submission:', err); // Log errors
         setError('An error occurred while submitting the form.');
       }
     });
@@ -91,8 +95,14 @@ const EnergyCalculator: FC = () => {
     setIsSubmitDisabled(false);
   };
 
+  const handleImport = async (importedDevices: z.infer<typeof CalculateDevices>[]) => {
+    replace(importedDevices);
+    setIsSubmitDisabled(false);
+  };
+
   return (
     <div className="container mx-auto p-4">
+      <ImportDevices onImport={handleImport} />
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
           <div className="space-y-4">
@@ -221,7 +231,7 @@ const EnergyCalculator: FC = () => {
                       )}
                     />
                     <Button type="button" onClick={() => {
-                      remove(index)
+                      remove(index);
                       setIsSubmitDisabled(false);
                     }} className="w-full mt-2">
                       Видалити
