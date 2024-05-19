@@ -1,3 +1,4 @@
+'use client'
 import {FC, useEffect, useState} from 'react'
 import {ExtendedUser} from "@/next-auth";
 import * as z from "zod";
