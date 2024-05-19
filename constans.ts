@@ -9,3 +9,9 @@ export const headersXlsxTemplate = {
   'кВт': null,
   'кВт в місяць': null
 };
+
+export const periodOptions = [
+  {label: 'В день', code: 'day'},
+  {label: 'В тиждень', code: 'week'},
+  {label: 'В місяць', code: 'month'},
+]

@@ -13,6 +13,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { calculateCreateMany } from "@/actions/calculate";
 import { getDevices } from "@/actions/getDevices";
 import { Input } from "@/components/ui/input";
+import { periodOptions } from "@/constans";
 
 const DevicesSchema = z.array(DeviceSchema);
 
@@ -21,7 +22,7 @@ const defaultDevice = {
   nameDevice: '',
   count: '0',
   hoursWork: '0',
-  period: '0.01',
+  period: periodOptions[0].label,
   kw: '10',
   kwMonth: '10'
 };
@@ -64,7 +65,6 @@ const EnergyCalculator: FC = () => {
     setSuccess('');
 
     startTransition(async () => {
-
       try {
         const data = await calculateCreateMany(values.devices);
         setError(data?.error);
@@ -129,86 +129,105 @@ const EnergyCalculator: FC = () => {
                     </FormItem>
                   )}
                 />
-                <FormField
-                  name={`devices.${index}.count`}
-                  control={form.control}
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Кількість</FormLabel>
-                      <FormControl>
-                        <Input {...field} disabled={isPending} />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                <FormField
-                  name={`devices.${index}.hoursWork`}
-                  control={form.control}
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Часи роботи</FormLabel>
-                      <FormControl>
-                        <Input {...field} disabled={isPending} />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                <FormField
-                  name={`devices.${index}.period`}
-                  control={form.control}
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Період</FormLabel>
-                      <FormControl>
-                        <Input {...field} disabled={isPending} />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                <FormField
-                  name={`devices.${index}.kw`}
-                  control={form.control}
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>кВт</FormLabel>
-                      <FormControl>
-                        <Slider
-                          value={[Number(field.value)]}
-                          step={stepKwValues[index] || 1}
-                          max={stepKwMaxValues[index] || 100}
-                          onValueChange={(value) => {
-                            field.onChange(String(value[0]));
-                          }}
-                          disabled={isPending}
-                        />
-                      </FormControl>
-                      <div className="mt-2 text-sm text-gray-500">Current kW: {field.value}</div>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                <FormField
-                  name={`devices.${index}.kwMonth`}
-                  control={form.control}
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>кВт в місяць</FormLabel>
-                      <FormControl>
-                        <Input {...field} disabled={isPending} />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                <Button type="button" onClick={() => {
-                  remove(index)
-                  setIsSubmitDisabled(false);
-                }} className="w-full mt-2">
-                  Видалити
-                </Button>
+                {form.watch(`devices.${index}.nameDevice`) && (
+                  <>
+                    <FormField
+                      name={`devices.${index}.count`}
+                      control={form.control}
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Кількість</FormLabel>
+                          <FormControl>
+                            <Input {...field} disabled={isPending} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    <FormField
+                      name={`devices.${index}.hoursWork`}
+                      control={form.control}
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Часи роботи</FormLabel>
+                          <FormControl>
+                            <Input {...field} disabled={isPending} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    <FormField
+                      name={`devices.${index}.period`}
+                      control={form.control}
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Період</FormLabel>
+                          <FormControl>
+                            <Select
+                              value={field.value}
+                              onValueChange={field.onChange}
+                              disabled={false}
+                            >
+                              <SelectTrigger>
+                                <SelectValue placeholder="Виберіть період" />
+                              </SelectTrigger>
+                              <SelectContent>
+                                {periodOptions.map((option) => (
+                                  <SelectItem key={option.code} value={option.label}>
+                                    {option.label}
+                                  </SelectItem>
+                                ))}
+                              </SelectContent>
+                            </Select>
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    <FormField
+                      name={`devices.${index}.kw`}
+                      control={form.control}
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>кВт</FormLabel>
+                          <FormControl>
+                            <Slider
+                              value={[Number(field.value)]}
+                              step={stepKwValues[index] || 1}
+                              max={stepKwMaxValues[index] || 100}
+                              onValueChange={(value) => {
+                                field.onChange(String(value[0]));
+                              }}
+                              disabled={isPending}
+                            />
+                          </FormControl>
+                          <div className="mt-2 text-sm text-gray-500">Current kW: {field.value}</div>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    <FormField
+                      name={`devices.${index}.kwMonth`}
+                      control={form.control}
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>кВт в місяць</FormLabel>
+                          <FormControl>
+                            <Input {...field} disabled={isPending} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    <Button type="button" onClick={() => {
+                      remove(index)
+                      setIsSubmitDisabled(false);
+                    }} className="w-full mt-2">
+                      Видалити
+                    </Button>
+                  </>
+                )}
               </div>
             ))}
           </div>

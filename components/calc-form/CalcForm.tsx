@@ -13,6 +13,7 @@ import {zodResolver} from "@hookform/resolvers/zod";
 import {calculate} from "@/actions/calculate";
 import {getDevices} from "@/actions/getDevices";
 import {Input} from "@/components/ui/input";
+import {periodOptions} from "@/constans";
 
 interface ICalcFormProps {
 }
@@ -31,7 +32,7 @@ const CalcForm: FC<ICalcFormProps> = ({}) => {
       nameDevice: '',
       count: '0',
       hoursWork: '0',
-      period: '0.01',
+      period: periodOptions[0].label,
       kw: '10',
       kwMonth: '10',
     },
@@ -131,7 +132,22 @@ const CalcForm: FC<ICalcFormProps> = ({}) => {
                   <FormItem>
                     <FormLabel>Період</FormLabel>
                     <FormControl>
-                      <Input {...field} disabled={isPending}/>
+                      <Select
+                        value={field.value}
+                        onValueChange={field.onChange}
+                        disabled={false}
+                      >
+                        <SelectTrigger>
+                          <SelectValue placeholder="Виберіть період" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {periodOptions.map((option) => (
+                            <SelectItem key={option.code} value={option.label}>
+                              {option.label}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
                     </FormControl>
                     <FormMessage/>
                   </FormItem>
