@@ -9,6 +9,9 @@ import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow} from "@/c
 import {Checkbox} from "@/components/ui/checkbox";
 import {Skeleton} from "@/components/ui/skeleton";
 import SkeletonTable from "@/components/auth/user-info/skeleton-table/SkeletonTable";
+import ExportToXLSXButton from "@/components/export-to-xlsx/ExportToXLSXButton";
+import ExportToDocxButton from "@/components/export-to-docx/ExportToDocxButton";
+import ExportToPdfButton from "@/components/export-to-pdf/ExportToPDFButton";
 
 interface IUserInfoProps {
   user?: ExtendedUser
@@ -78,7 +81,7 @@ const UserInfo: FC<IUserInfoProps> = ({label, user}) => {
             <TableHeader>
               <TableRow>
                 <TableHead>
-                  <Checkbox checked={isAllSelected} onCheckedChange={handleSelectAll} />
+                  <Checkbox checked={isAllSelected} onCheckedChange={handleSelectAll}/>
                 </TableHead>
                 {headers.map((header, index) => (
                   <TableHead key={index}>{header}</TableHead>
@@ -104,8 +107,16 @@ const UserInfo: FC<IUserInfoProps> = ({label, user}) => {
               ))}
             </TableBody>
           </Table>
+
+          <div className='flex gap-2 mt-8 justify-center flex-wrap'>
+            <ExportToXLSXButton data={calculate}/>
+            <ExportToDocxButton data={calculate}/>
+            <ExportToPdfButton data={calculate}/>
+          </div>
         </div>
-      ) : <EmptyCalculateData />}
+      ) : <EmptyCalculateData/>}
+
+
     </>
   );
 };
