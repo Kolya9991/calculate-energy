@@ -1,15 +1,22 @@
 'use client';
-import {FC} from 'react'
+import {FC} from 'react';
 import * as XLSX from 'xlsx';
 import {IDeviceProps} from "@/types/calculateDevice";
 import {Button} from "@/components/ui/button";
+import {toast} from "sonner";
 
 interface IExportToXlsxButtonProps {
-  data: IDeviceProps[]
+  data: IDeviceProps[];
+  disabled?: boolean;
 }
 
-const ExportToXlsxButton: FC<IExportToXlsxButtonProps> = ({data}) => {
+const ExportToXlsxButton: FC<IExportToXlsxButtonProps> = ({data, disabled}) => {
   const exportToExcel = () => {
+    if (disabled) {
+      toast.error('Виберіть хочаб один checkbox');
+      return;
+    }
+
     const rows = data.map(item => ({
       'Назва приладу': item.nameDevice,
       'Кількість': item.count,
@@ -25,7 +32,11 @@ const ExportToXlsxButton: FC<IExportToXlsxButtonProps> = ({data}) => {
     XLSX.writeFile(workbook, 'Розрахунок енергоефективностi.xlsx');
   };
 
-  return <Button onClick={exportToExcel}>Экспорт в excel</Button>;
+  return (
+    <div onClick={disabled ? () => toast.error('Виберіть хочаб один checkbox') : undefined}>
+      <Button onClick={exportToExcel} disabled={disabled}>Экспорт в excel</Button>
+    </div>
+  );
 };
 
 export default ExportToXlsxButton;

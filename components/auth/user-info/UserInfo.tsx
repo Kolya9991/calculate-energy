@@ -11,6 +11,7 @@ import SkeletonTable from "@/components/auth/user-info/skeleton-table/SkeletonTa
 import ExportToXLSXButton from "@/components/export-to-xlsx/ExportToXLSXButton";
 import ExportToDocxButton from "@/components/export-to-docx/ExportToDocxButton";
 import ExportToPdfButton from "@/components/export-to-pdf/ExportToPDFButton";
+import {toast} from "sonner";
 
 interface IUserInfoProps {
   user?: ExtendedUser
@@ -110,9 +111,9 @@ const UserInfo: FC<IUserInfoProps> = ({ user}) => {
           </Table>
 
           <div className='flex gap-2 mt-8 justify-center flex-wrap'>
-            <ExportToXLSXButton data={getSelectedData()} />
-            <ExportToDocxButton data={getSelectedData()} />
-            <ExportToPdfButton data={getSelectedData()} />
+            <ExportToXLSXButton data={getSelectedData()} disabled={selectedItems.length === 0} />
+            <ExportToDocxButton data={getSelectedData()} disabled={selectedItems.length === 0} />
+            <ExportToPdfButton data={getSelectedData()} disabled={selectedItems.length === 0} />
           </div>
         </div>
       ) : <SkeletonTable />}

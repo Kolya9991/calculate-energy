@@ -5,9 +5,11 @@ import jsPDF from 'jspdf';
 import 'jspdf-autotable';
 import {robotoBase64} from "@/robotoFontBase64";
 import {Button} from "@/components/ui/button";
+import {toast} from "sonner";
 
 interface IExportToPdfButtonProps {
-  data: IDeviceProps[]
+  data: IDeviceProps[];
+  disabled?: boolean;
 }
 
 declare module "jspdf" {
@@ -16,8 +18,12 @@ declare module "jspdf" {
   }
 }
 
-const ExportToPdfButton: FC<IExportToPdfButtonProps> = ({data}) => {
+const ExportToPdfButton: FC<IExportToPdfButtonProps> = ({data, disabled}) => {
   const exportPDF = () => {
+    if(disabled){
+      toast.error('Виберіть хочаб один checkbox')
+      return;
+    }
     const doc = new jsPDF();
 
     doc.addFileToVFS('Roboto-Regular.ttf', robotoBase64);
@@ -51,7 +57,11 @@ const ExportToPdfButton: FC<IExportToPdfButtonProps> = ({data}) => {
     doc.save('Розрахунок енергоефективностi.pdf');
   };
 
-  return <Button onClick={exportPDF}>Экспорт в PDF</Button>;
+  return (
+    <div onClick={disabled ? () => toast.error('Виберіть хочаб один checkbox') : undefined}>
+      <Button onClick={exportPDF} disabled={disabled}>Экспорт в PDF</Button>
+    </div>
+  )
 };
 
 export default ExportToPdfButton;
