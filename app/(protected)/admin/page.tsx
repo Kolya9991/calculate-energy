@@ -17,7 +17,7 @@ const AdminPage = () => {
       </TabsList>
       <TabsContent value='add' className='w-full'><AddNewDevice/></TabsContent>
       <TabsContent value='get' className='overflow-visible w-full'><AllDevice/></TabsContent>
-      <TabsContent value='import' className='w-full'><ImportDevices/></TabsContent>
+      <TabsContent value='import' className='w-full'><ImportDevices onImport={()=>{}}/></TabsContent>
     </Tabs>
   );
 };
