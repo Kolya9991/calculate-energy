@@ -120,31 +120,13 @@ const SettingPage = () => {
                     </FormItem>
                   )}/>
               </>}
-              <FormField name='role' control={form.control} render={({field}) => (
+              {user?.role === 'ADMIN' ? <FormField name='role' control={form.control} render={({field}) => (
                 <FormItem>
-                  <FormLabel>Роль</FormLabel>
-                  <Select
-                    disabled={isPending}
-                    onValueChange={field.onChange}
-                    defaultValue={field.value}
-                  >
-                    <FormControl>
-                      <SelectTrigger>
-                        <SelectValue placeholder='Select a role'/>
-                      </SelectTrigger>
-                    </FormControl>
-                    <SelectContent>
-                      <SelectItem value={UserRole.ADMIN}>
-                        Admin
-                      </SelectItem>
-                      <SelectItem value={UserRole.USER}>
-                        User
-                      </SelectItem>
-                    </SelectContent>
-                  </Select>
+                  <FormLabel>Роль - </FormLabel>
+                  <span>{user?.role}</span>
                   <FormMessage/>
                 </FormItem>
-              )}/>
+              )}/> : null}
               {user?.isOAuth === false &&
                   <FormField name='isTwoFactorEnabled' control={form.control} render={({field}) => (
                     <FormItem className='flex flex-row items-center justify-between rounded-lg border p-3 shadow-md'>
