@@ -5,9 +5,10 @@ import { toast } from 'sonner';
 
 interface ImportDevicesProps {
   onImport: (devices: any[]) => void;
+  importAdminDevice?: boolean;
 }
 
-const ImportDevices: FC<ImportDevicesProps> = ({ onImport }) => {
+const ImportDevices: FC<ImportDevicesProps> = ({ onImport, importAdminDevice }) => {
   const [file, setFile] = useState<File | null>(null);
 
   const handleFileChange = (event: any) => {
@@ -49,7 +50,7 @@ const ImportDevices: FC<ImportDevicesProps> = ({ onImport }) => {
           sheetsData.push(...sheetData);
         });
 
-        const translatedData = translateFields(sheetsData);
+        const translatedData = !importAdminDevice ? translateDevice(sheetsData) : translateFields(sheetsData);
         console.log("Translated data:", translatedData); // Log translated data
         onImport(translatedData);
         toast.success('Файл успішно оброблено');
@@ -59,6 +60,19 @@ const ImportDevices: FC<ImportDevicesProps> = ({ onImport }) => {
   };
 
   const translateFields = (data: any[]) => {
+    return data.map(item => ({
+      id: '',
+      nameDevice: item['Назва приладу'],
+      kwMin: item['кВт мін'],
+      kwMax: String(item['кВт макс']),
+      stepKw: item['Крок кВт'],
+      maxKwMonth: String(item['Макс кВт в місяць']),
+      stepKwMin: item['крок кВт мін'],
+      stepKwMax: item['крок кВт макс'],
+    }));
+  };
+
+  const translateDevice = (data: any[]) => {
     return data.map(item => ({
       id: '',
       nameDevice: item['Назва приладу'],

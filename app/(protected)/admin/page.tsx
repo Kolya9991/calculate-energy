@@ -1,10 +1,10 @@
 'use client';
 
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import {Tabs, TabsContent, TabsList, TabsTrigger} from "@/components/ui/tabs";
 import AddNewDevice from "@/components/add-new-device/AddNewDevice";
 import AllDevice from "@/components/all-device/AllDevice";
-import ImportDevices from "@/components/import-devices/ImportDevices";
 import GetAllContactUs from "@/components/GetAllContactUs";
+import ImportDevicesAdmin from "@/components/import-device-admin/ImportDevicesAdmin";
 
 const AdminPage = () => {
   return (
@@ -17,7 +17,7 @@ const AdminPage = () => {
       </TabsList>
       <TabsContent value='add' className='w-full'><AddNewDevice/></TabsContent>
       <TabsContent value='get' className='overflow-visible w-full'><AllDevice/></TabsContent>
-      <TabsContent value='import' className='w-full'><ImportDevices onImport={()=>{}}/></TabsContent>
+      <TabsContent value='import' className='w-full'><ImportDevicesAdmin/></TabsContent>
       <TabsContent value='contact' className='overflow-visible w-full'><GetAllContactUs/></TabsContent>
     </Tabs>
   );

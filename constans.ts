@@ -11,6 +11,17 @@ export const headersXlsxTemplate = {
   'кВт в місяць': null
 };
 
+
+export const headersXlsxTemplateDevice = {
+  'Назва приладу': null,
+  'кВт мін': null,
+  'кВт макс': null,
+  'Крок кВт': null,
+  'Макс кВт в місяць': null,
+  'крок кВт мін': null,
+  'крок кВт макс': null,
+};
+
 export const periodOptions = [
   {label: 'В день', code: 'day'},
   {label: 'В тиждень', code: 'week'},

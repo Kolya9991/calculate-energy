@@ -105,7 +105,7 @@ const AddNewDevice = () => {
                 control={form.control}
                 render={({field}) => (
                   <FormItem>
-                    <FormLabel>Шаг кВт</FormLabel>
+                    <FormLabel>Крок кВт</FormLabel>
                     <FormControl>
                       <Input
                         {...field}
