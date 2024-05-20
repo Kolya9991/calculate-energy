@@ -25,8 +25,8 @@ const Navbar = () => {
       <Button asChild variant={pathname === "/client" ? 'default' : 'outline'}>
         <Link href='/client' onClick={handleClose}>Client</Link>
       </Button>
-      <Button asChild variant={pathname === "/calculation-result" ? 'default' : 'outline'}>
-        <Link href='/calculation-result' onClick={handleClose}>calculation-result</Link>
+      <Button asChild variant={pathname === "/contact-us" ? 'default' : 'outline'}>
+        <Link href='/contact-us' onClick={handleClose}>Контакна форма</Link>
       </Button>
       <Button asChild variant={pathname === "/calc" ? 'default' : 'outline'}>
         <Link href='/calc' onClick={handleClose}>Калькулятор енергоефективності</Link>
