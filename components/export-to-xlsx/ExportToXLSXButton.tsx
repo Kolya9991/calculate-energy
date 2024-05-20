@@ -1,35 +1,52 @@
 'use client';
-import {FC} from 'react';
-import * as XLSX from 'xlsx';
-import {IDeviceProps} from "@/types/calculateDevice";
-import {Button} from "@/components/ui/button";
-import {toast} from "sonner";
+import { FC } from 'react';
+import ExcelJS from 'exceljs';
+import { IDeviceProps } from "@/types/calculateDevice";
+import { Button } from "@/components/ui/button";
+import { toast } from "sonner";
 
 interface IExportToXlsxButtonProps {
   data: IDeviceProps[];
   disabled?: boolean;
 }
 
-const ExportToXlsxButton: FC<IExportToXlsxButtonProps> = ({data, disabled}) => {
+const ExportToXlsxButton: FC<IExportToXlsxButtonProps> = ({ data, disabled }) => {
   const exportToExcel = () => {
     if (disabled) {
       toast.error('Виберіть хочаб один checkbox');
       return;
     }
 
-    const rows = data.map(item => ({
-      'Назва приладу': item.nameDevice,
-      'Кількість': item.count,
-      'Години роботи': item.hoursWork,
-      'Період': item.period,
-      'кВт': item.kw,
-      'кВт в місяць': item.kwMonth
-    }));
+    const workbook = new ExcelJS.Workbook();
+    const worksheet = workbook.addWorksheet('Розрахунок енергоефективностi');
 
-    const worksheet = XLSX.utils.json_to_sheet(rows);
-    const workbook = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(workbook, worksheet, "Розрахунок енергоефективностi");
-    XLSX.writeFile(workbook, 'Розрахунок енергоефективностi.xlsx');
+    worksheet.columns = [
+      { header: 'Назва приладу', key: 'nameDevice', width: 30 },
+      { header: 'Кількість', key: 'count', width: 10 },
+      { header: 'Години роботи', key: 'hoursWork', width: 15 },
+      { header: 'Період', key: 'period', width: 20 },
+      { header: 'кВт', key: 'kw', width: 10 },
+      { header: 'кВт в місяць', key: 'kwMonth', width: 15 },
+    ];
+
+    data.forEach(item => {
+      worksheet.addRow({
+        nameDevice: item.nameDevice,
+        count: item.count,
+        hoursWork: item.hoursWork,
+        period: item.period,
+        kw: item.kw,
+        kwMonth: item.kwMonth,
+      });
+    });
+
+    workbook.xlsx.writeBuffer().then((buffer) => {
+      const blob = new Blob([buffer], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = 'Розрахунок енергоефективностi.xlsx';
+      link.click();
+    });
   };
 
   return (

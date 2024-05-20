@@ -5,18 +5,19 @@ import {
   DropdownMenuLabel,
   DropdownMenuTrigger
 } from "@/components/ui/dropdown-menu";
-import {Button} from "@/components/ui/button";
+import { Button } from "@/components/ui/button";
 import { Document, Packer, Paragraph, Table, TableCell, TableRow, WidthType } from 'docx';
 import { saveAs } from 'file-saver';
-import * as XLSX from 'xlsx';
-import {excelIcon, headers, headersXlsxTemplate, wordIcon} from "@/constans";
-import {FC} from "react";
+import ExcelJS from 'exceljs';
+import { excelIcon, headers, headersXlsxTemplate, wordIcon } from "@/constans";
+import { FC } from "react";
 
 interface IExportTemplateProps {
   disabledExcelTemplate?: boolean;
   disabledWordTemplate?: boolean;
 }
-const ExportTemplate: FC<IExportTemplateProps> = ({disabledExcelTemplate, disabledWordTemplate}) => {
+
+const ExportTemplate: FC<IExportTemplateProps> = ({ disabledExcelTemplate, disabledWordTemplate }) => {
 
   const exportWordTemplate = () => {
     const headerRow = new TableRow({
@@ -35,10 +36,17 @@ const ExportTemplate: FC<IExportTemplateProps> = ({disabledExcelTemplate, disabl
   };
 
   const exportExcelTemplate = () => {
-    const worksheet = XLSX.utils.json_to_sheet([headersXlsxTemplate], { header: Object.keys(headersXlsxTemplate) });
-    const workbook = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(workbook, worksheet, "Шаблон");
-    XLSX.writeFile(workbook, 'Шаблон.xlsx');
+    const workbook = new ExcelJS.Workbook();
+    const worksheet = workbook.addWorksheet('Шаблон');
+
+    // Add header row
+    const headerRow = Object.keys(headersXlsxTemplate);
+    worksheet.addRow(headerRow);
+
+    workbook.xlsx.writeBuffer().then((buffer) => {
+      const blob = new Blob([buffer], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+      saveAs(blob, 'Шаблон.xlsx');
+    });
   };
 
   return (
@@ -51,11 +59,11 @@ const ExportTemplate: FC<IExportTemplateProps> = ({disabledExcelTemplate, disabl
       <DropdownMenuContent align="center">
         <DropdownMenuLabel>Формат файла</DropdownMenuLabel>
         <DropdownMenuItem onClick={exportWordTemplate} disabled={disabledWordTemplate}>
-          <img src={wordIcon} width="24" height="24" alt="Word Icon" style={{marginRight: 8}}/>
+          <img src={wordIcon} width="24" height="24" alt="Word Icon" style={{ marginRight: 8 }} />
           Word file
         </DropdownMenuItem>
         <DropdownMenuItem onClick={exportExcelTemplate} disabled={disabledExcelTemplate}>
-          <img src={excelIcon} width="24" height="24" alt="Excel Icon" style={{marginRight: 8}}/>
+          <img src={excelIcon} width="24" height="24" alt="Excel Icon" style={{ marginRight: 8 }} />
           Excel file
         </DropdownMenuItem>
       </DropdownMenuContent>
@@ -64,4 +72,3 @@ const ExportTemplate: FC<IExportTemplateProps> = ({disabledExcelTemplate, disabl
 };
 
 export default ExportTemplate;
-

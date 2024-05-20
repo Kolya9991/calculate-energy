@@ -103,7 +103,7 @@ const EnergyCalculator: FC = () => {
 
   return (
     <div className="container mx-auto p-4">
-      <div className='flex gap-x-2 items-center'>
+      <div className='flex justify-between items-center flex-wrap mb-2'>
         <ImportDevices onImport={handleImport} />
         <ExportTemplate disabledWordTemplate/>
       </div>
