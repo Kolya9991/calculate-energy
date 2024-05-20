@@ -18,11 +18,11 @@ export function ThemeToggle() {
 
   return (
     <div className='ml-auto mr-2'>
-      <Button variant="outline" size="icon" onClick={toggleTheme}>
+      <Button variant="outline" size="icon" onClick={toggleTheme} className={theme === 'light' ? 'bg-secondary shadow-none border-none' : 'bg-red'}>
         {theme === 'light' ? (
-          <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all"/>
+          <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all" />
         ) : (
-          <Moon className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all"/>
+          <Moon className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all" />
         )}
       </Button>
     </div>

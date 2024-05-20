@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bf4ec1fc-e48d-4545-af1b-64be8bbd48ae" name="Changes" comment="add components: &#10; - Checkbox&#10; - EmptyCalculateData&#10;update page UserInfo:&#10; - add table for showing calculate data">
-      <change beforePath="$PROJECT_DIR$/components/auth/user-info/UserInfo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/auth/user-info/UserInfo.tsx" afterDir="false" />
+    <list default="true" id="bf4ec1fc-e48d-4545-af1b-64be8bbd48ae" name="Changes" comment="add theme provider&#10;add themeToggle for change theme color&#10;add ThemeToggle in Navbar">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -141,7 +141,8 @@
       <workItem from="1715948641806" duration="5680000" />
       <workItem from="1716042279382" duration="1628000" />
       <workItem from="1716099978356" duration="695000" />
-      <workItem from="1716101223639" duration="4724000" />
+      <workItem from="1716101223639" duration="19779000" />
+      <workItem from="1716175572574" duration="1170000" />
     </task>
     <task id="LOCAL-00001" summary="add needed folders">
       <option name="closed" value="true" />
@@ -391,7 +392,127 @@
       <option name="project" value="LOCAL" />
       <updated>1716111220583</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="add condition&#10;add skeleton while loading data">
+      <option name="closed" value="true" />
+      <created>1716111482953</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1716111482953</updated>
+    </task>
+    <task id="LOCAL-00033" summary="wrapper link into button">
+      <option name="closed" value="true" />
+      <created>1716111699872</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1716111699872</updated>
+    </task>
+    <task id="LOCAL-00034" summary="change variant for button">
+      <option name="closed" value="true" />
+      <created>1716111911095</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1716111911095</updated>
+    </task>
+    <task id="LOCAL-00035" summary="create skeleton for table&#10;add logic with checked checkbox">
+      <option name="closed" value="true" />
+      <created>1716112515140</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1716112515140</updated>
+    </task>
+    <task id="LOCAL-00036" summary="update period options:&#10; - change Input to Select&#10; - hide other fields while choice device">
+      <option name="closed" value="true" />
+      <created>1716114072985</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1716114072985</updated>
+    </task>
+    <task id="LOCAL-00037" summary="add export data calculate to: &#10; - xlsx&#10; - docx&#10; - pdf">
+      <option name="closed" value="true" />
+      <created>1716127192619</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1716127192619</updated>
+    </task>
+    <task id="LOCAL-00038" summary="fix build">
+      <option name="closed" value="true" />
+      <created>1716127458317</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1716127458317</updated>
+    </task>
+    <task id="LOCAL-00039" summary="remove unused prop (label)&#10;add func to export data if checked">
+      <option name="closed" value="true" />
+      <created>1716128145524</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1716128145524</updated>
+    </task>
+    <task id="LOCAL-00040" summary="change condition">
+      <option name="closed" value="true" />
+      <created>1716128308898</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1716128308898</updated>
+    </task>
+    <task id="LOCAL-00041" summary="implement import calculate data">
+      <option name="closed" value="true" />
+      <created>1716139927896</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1716139927896</updated>
+    </task>
+    <task id="LOCAL-00042" summary="change accept file from xlsx, docx only to xlsx">
+      <option name="closed" value="true" />
+      <created>1716139968530</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1716139968530</updated>
+    </task>
+    <task id="LOCAL-00043" summary="fix build">
+      <option name="closed" value="true" />
+      <created>1716140091602</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1716140091602</updated>
+    </task>
+    <task id="LOCAL-00044" summary="add template for calc form&#10;fix naming in template&#10;add description for import">
+      <option name="closed" value="true" />
+      <created>1716141236491</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1716141236491</updated>
+    </task>
+    <task id="LOCAL-00045" summary="disabled export button if not selected any checkbox">
+      <option name="closed" value="true" />
+      <created>1716143841485</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1716143841485</updated>
+    </task>
+    <task id="LOCAL-00046" summary="add theme provider&#10;add themeToggle for change theme color&#10;add ThemeToggle in Navbar">
+      <option name="closed" value="true" />
+      <created>1716144208800</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1716144208800</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -399,19 +520,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="create form to add device for admin only&#10;add new schema DeviceSchema" />
-    <MESSAGE value="add own dns domain to sent email from other emails" />
-    <MESSAGE value="update env file" />
-    <MESSAGE value="getting all device&#10;add libs:&#10; table&#10; tabs" />
-    <MESSAGE value="add actions with cell:&#10; - copy id&#10; - delete device&#10;add component: &#10; - modal.tsx&#10; - AlertModal.tsx&#10; - ActionWithCell.tsx&#10;install lib:&#10; - lucide-react" />
-    <MESSAGE value="add necessary field id for add new device form" />
-    <MESSAGE value="create updating device page" />
-    <MESSAGE value="add component ImportDevices" />
-    <MESSAGE value="change lable" />
-    <MESSAGE value="add functionality for export template docx,  xlsx file" />
-    <MESSAGE value="updated model Device and all place where using add, update, delete (CRUD)&#10;begin work at calculator energy&#10;add slider" />
-    <MESSAGE value="create calc form" />
-    <MESSAGE value="add lib for testing" />
     <MESSAGE value="add page about us&#10;add image aboutUs.webp" />
     <MESSAGE value="add page faq&#10;add lib:&#10; - accordion" />
     <MESSAGE value="fix calculation for user" />
@@ -422,8 +530,21 @@
     <MESSAGE value="centered text in calc" />
     <MESSAGE value="remove choice role, left showing role only for admin, readOnly" />
     <MESSAGE value="create functionality to get calculate by userID" />
-    <MESSAGE value="fix build" />
     <MESSAGE value="add components: &#10; - Checkbox&#10; - EmptyCalculateData&#10;update page UserInfo:&#10; - add table for showing calculate data" />
-    <option name="LAST_COMMIT_MESSAGE" value="add components: &#10; - Checkbox&#10; - EmptyCalculateData&#10;update page UserInfo:&#10; - add table for showing calculate data" />
+    <MESSAGE value="add condition&#10;add skeleton while loading data" />
+    <MESSAGE value="wrapper link into button" />
+    <MESSAGE value="change variant for button" />
+    <MESSAGE value="create skeleton for table&#10;add logic with checked checkbox" />
+    <MESSAGE value="update period options:&#10; - change Input to Select&#10; - hide other fields while choice device" />
+    <MESSAGE value="add export data calculate to: &#10; - xlsx&#10; - docx&#10; - pdf" />
+    <MESSAGE value="remove unused prop (label)&#10;add func to export data if checked" />
+    <MESSAGE value="change condition" />
+    <MESSAGE value="implement import calculate data" />
+    <MESSAGE value="change accept file from xlsx, docx only to xlsx" />
+    <MESSAGE value="fix build" />
+    <MESSAGE value="add template for calc form&#10;fix naming in template&#10;add description for import" />
+    <MESSAGE value="disabled export button if not selected any checkbox" />
+    <MESSAGE value="add theme provider&#10;add themeToggle for change theme color&#10;add ThemeToggle in Navbar" />
+    <option name="LAST_COMMIT_MESSAGE" value="add theme provider&#10;add themeToggle for change theme color&#10;add ThemeToggle in Navbar" />
   </component>
 </project>
