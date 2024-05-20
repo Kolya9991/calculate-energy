@@ -1,4 +1,6 @@
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/ui/accordion';
+import {Button} from "@/components/ui/button";
+import Link from "next/link";
 
 const FaqPage = () => {
   return (
@@ -69,6 +71,11 @@ const FaqPage = () => {
           </AccordionContent>
         </AccordionItem>
       </Accordion>
+      <div className="flex justify-center mt-8">
+        <Button>
+          <Link href='/contact-us'>Залишись ще якісь питання?</Link>
+        </Button>
+      </div>
     </div>
   );
 };
