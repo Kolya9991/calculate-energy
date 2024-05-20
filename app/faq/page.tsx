@@ -72,7 +72,7 @@ const FaqPage = () => {
         </AccordionItem>
       </Accordion>
       <div className="flex justify-center mt-8">
-        <Button>
+        <Button variant='link'>
           <Link href='/contact-us'>Залишись ще якісь питання?</Link>
         </Button>
       </div>

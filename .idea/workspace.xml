@@ -4,8 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bf4ec1fc-e48d-4545-af1b-64be8bbd48ae" name="Changes" comment="add theme provider&#10;add themeToggle for change theme color&#10;add ThemeToggle in Navbar">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="bf4ec1fc-e48d-4545-af1b-64be8bbd48ae" name="Changes" comment="update lib from xlsx to exceljs">
+      <change afterPath="$PROJECT_DIR$/actions/createContactUs.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/contact-us/layout.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/contact-us/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/contacts/ContactUsForm.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/contacts/Contacts.module.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/contacts/ContactsInfo.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/ui/textarea.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/faq/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/faq/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prisma/schema.prisma" beforeDir="false" afterPath="$PROJECT_DIR$/prisma/schema.prisma" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schemas/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/schemas/index.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -142,7 +151,7 @@
       <workItem from="1716042279382" duration="1628000" />
       <workItem from="1716099978356" duration="695000" />
       <workItem from="1716101223639" duration="19779000" />
-      <workItem from="1716175572574" duration="1170000" />
+      <workItem from="1716175572574" duration="8204000" />
     </task>
     <task id="LOCAL-00001" summary="add needed folders">
       <option name="closed" value="true" />
@@ -512,7 +521,31 @@
       <option name="project" value="LOCAL" />
       <updated>1716144208800</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="change bg for ThemeToggle">
+      <option name="closed" value="true" />
+      <created>1716177604226</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1716177604226</updated>
+    </task>
+    <task id="LOCAL-00048" summary="add link to contact-us">
+      <option name="closed" value="true" />
+      <created>1716178073840</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1716178073840</updated>
+    </task>
+    <task id="LOCAL-00049" summary="update lib from xlsx to exceljs">
+      <option name="closed" value="true" />
+      <created>1716180635752</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1716180635752</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -520,9 +553,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="add page about us&#10;add image aboutUs.webp" />
-    <MESSAGE value="add page faq&#10;add lib:&#10; - accordion" />
-    <MESSAGE value="fix calculation for user" />
     <MESSAGE value="update calc form,&#10;add slider&#10;add select to choose device, period" />
     <MESSAGE value="update navbar:&#10; - add new path&#10; - add layout for all page" />
     <MESSAGE value="update gitignore file" />
@@ -545,6 +575,9 @@
     <MESSAGE value="add template for calc form&#10;fix naming in template&#10;add description for import" />
     <MESSAGE value="disabled export button if not selected any checkbox" />
     <MESSAGE value="add theme provider&#10;add themeToggle for change theme color&#10;add ThemeToggle in Navbar" />
-    <option name="LAST_COMMIT_MESSAGE" value="add theme provider&#10;add themeToggle for change theme color&#10;add ThemeToggle in Navbar" />
+    <MESSAGE value="change bg for ThemeToggle" />
+    <MESSAGE value="add link to contact-us" />
+    <MESSAGE value="update lib from xlsx to exceljs" />
+    <option name="LAST_COMMIT_MESSAGE" value="update lib from xlsx to exceljs" />
   </component>
 </project>

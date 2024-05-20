@@ -64,3 +64,10 @@ export const CalculateDevices = z.object({
   kw: z.string(),
   kwMonth: z.string(),
 })
+
+export const ContactUsSchema = z.object({
+  name: z.string(),
+  email: z.string(),
+  phone: z.string(),
+  comment: z.string(),
+})

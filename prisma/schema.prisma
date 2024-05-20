@@ -112,3 +112,11 @@ model Device {
   stepKwMin  String
   stepKwMax  String
 }
+
+model ContactUs {
+  id      String @id @default(cuid())
+  name    String
+  email   String
+  phone   String
+  comment String
+}

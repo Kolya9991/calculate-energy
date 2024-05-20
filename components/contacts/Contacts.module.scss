@@ -1,0 +1,119 @@
+.container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  @media (max-width: 720px) {
+    flex-wrap: wrap;
+    gap: 32px;
+  }
+}
+
+.wrapper {
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 12px;
+  width: 420px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  @media (max-width: 720px) {
+    padding: 20px;
+  }
+
+  .phoneDetails {
+    .phoneTitle {
+      margin-top: 0;
+      color: #333;
+      font-size: 13px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 120%;
+    }
+
+    .secondPhoneNumber {
+      color: #333;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 120%; /* 28.8px */
+      margin: 0 0 12px 0;
+      @media (max-width: 720px) {
+        font-size: 20px;
+      }
+    }
+
+    .secondPhoneNumber:last-of-type {
+      margin-bottom: 0;
+    }
+
+    .mainPhone {
+      margin: 0 0 12px 0;
+      display: flex;
+      flex-direction: column;
+      color: #333;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 120%;
+      @media (max-width: 720px) {
+        font-size: 20px;
+      }
+
+      .freeCall {
+        color: #999;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 140%; /* 16.8px */
+      }
+    }
+  }
+
+  .socialBlock {
+    .socialLinks {
+      margin: 0 0 12px 0;
+      color: #333;
+      font-size: 13px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 120%; /* 15.6px */
+    }
+  }
+
+  .workingHours {
+    margin: 0;
+    color: #333;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%; /* 22.4px */
+  }
+
+  .emailBlock {
+    .emailTitle {
+      color: #333;
+      font-size: 13px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 120%;
+      margin-top: 0;
+    }
+
+    .email {
+      color: #691B33;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 24px;
+      text-decoration-line: underline;
+      margin: 0;
+    }
+  }
+}
+
+.imgSocialLinks {
+  gap: 12px;
+  & > a {
+    padding: 0;
+  }
+}
