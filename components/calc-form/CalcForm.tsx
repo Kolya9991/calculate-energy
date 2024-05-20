@@ -62,7 +62,7 @@ const CalcForm: FC<ICalcFormProps> = ({}) => {
   }, []);
 
   return (
-    <div>
+    <div className="container mx-auto p-4">
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
           <div className="space-y-4">
@@ -193,7 +193,7 @@ const CalcForm: FC<ICalcFormProps> = ({}) => {
           </div>
           <FormError message={error}/>
           <FormSuccess message={success}/>
-          <Button type="submit" className="w-full">
+          <Button type="submit" className="w-full" disabled={!selectedDevice ? true : false}>
             Розрахувати
           </Button>
         </form>
