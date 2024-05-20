@@ -64,6 +64,7 @@ export const login = async (values: z.infer<typeof LoginSchema>, callbackUrl?: s
       })
 
     } else {
+      //TODO: check work twoFactor
       const twoFactorToken = await generateTwoFactorToken(existingUser.email);
       await sendTwoFactorTokenEmail(
         twoFactorToken.email,
