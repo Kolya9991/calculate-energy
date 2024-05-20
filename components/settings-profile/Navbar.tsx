@@ -19,11 +19,11 @@ const Navbar = () => {
     <div className='flex gap-x-2 flex-col mt-4 gap-y-4 md:flex-row md:gap-y-0 md:mt-0'>
       {user?.role === 'ADMIN' ? (
         <Button asChild variant={pathname === "/admin" ? 'default' : 'outline'}>
-          <Link href='/admin' onClick={handleClose}>Admin</Link>
+          <Link href='/admin' onClick={handleClose}>Адмін</Link>
         </Button>
       ) : null}
       <Button asChild variant={pathname === "/client" ? 'default' : 'outline'}>
-        <Link href='/client' onClick={handleClose}>Client</Link>
+        <Link href='/client' onClick={handleClose}>Особиста сторінка</Link>
       </Button>
       <Button asChild variant={pathname === "/contact-us" ? 'default' : 'outline'}>
         <Link href='/contact-us' onClick={handleClose}>Контакна форма</Link>
@@ -38,7 +38,7 @@ const Navbar = () => {
         <Link href='/about-us' onClick={handleClose}>Про нас</Link>
       </Button>
       <Button asChild variant={pathname === "/settings" ? 'default' : 'outline'}>
-        <Link href='/settings' onClick={handleClose}>Settings</Link>
+        <Link href='/settings' onClick={handleClose}>Налаштування</Link>
       </Button>
     </div>
   );
