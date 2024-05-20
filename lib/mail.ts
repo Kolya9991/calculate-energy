@@ -1,15 +1,16 @@
-import {Resend} from "resend";
+import { Resend } from "resend";
 
 const domain = process.env.NEXT_PUBLIC_APP_URL;
 
 const resend = new Resend(process.env.RESEND_API_KEY)
+
 export const sendVerificationEmail = async (email: string, token: string) => {
   const confirmLink = `${domain}/auth/new-verification?token=${token}`
   await resend.emails.send({
     from: 'mail@resend-testing.site',
     to: email,
-    subject: 'Confirm your email',
-    html: `<p>Click <a href="${confirmLink}">here</a> to confirm email.</p>`,
+    subject: 'Підтвердження вашої електронної пошти',
+    html: `<p>Натисніть <a href="${confirmLink}">тут</a>, щоб підтвердити електронну пошту.</p>`,
   })
 }
 
@@ -18,8 +19,8 @@ export const sendPasswordResetEmail = async (email: string, token: string) => {
   await resend.emails.send({
     from: 'mail@resend-testing.site',
     to: email,
-    subject: 'Reset your password',
-    html: `<p>Click <a href="${resetLink}">here</a> to reset password.</p>`,
+    subject: 'Скидання паролю',
+    html: `<p>Натисніть <a href="${resetLink}">тут</a>, щоб скинути пароль.</p>`,
   })
 }
 
@@ -27,7 +28,7 @@ export const sendTwoFactorTokenEmail = async (email: string, token: string) => {
   await resend.emails.send({
     from: 'mail@resend-testing.site',
     to: email,
-    subject: '2FA Code',
-    html: `<p>Your 2FA code: ${token}</p>`,
+    subject: 'Код двофакторної аутентифікації',
+    html: `<p>Ваш код для двофакторної аутентифікації: ${token}</p>`,
   })
 }
