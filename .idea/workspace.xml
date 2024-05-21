@@ -4,17 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bf4ec1fc-e48d-4545-af1b-64be8bbd48ae" name="Changes" comment="update lib from xlsx to exceljs">
-      <change afterPath="$PROJECT_DIR$/actions/createContactUs.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/contact-us/layout.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/contact-us/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/contacts/ContactUsForm.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/contacts/Contacts.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/contacts/ContactsInfo.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/ui/textarea.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/faq/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/faq/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/prisma/schema.prisma" beforeDir="false" afterPath="$PROJECT_DIR$/prisma/schema.prisma" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schemas/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/schemas/index.ts" afterDir="false" />
+    <list default="true" id="bf4ec1fc-e48d-4545-af1b-64be8bbd48ae" name="Changes" comment="add template for device in admin side&#10;add import file for admin &#10;add props: &#10; - ImportDevices.tsx&#10; - ExportTemplate.tsx&#10;fix naming in AddNewDevice.tsx">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/calc-form/CalcForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/calc-form/CalcForm.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +48,7 @@
     &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;jsx.switch.disabled&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/calculate-energy-diplom-full/public&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/calculate-energy-diplom-full/components&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -71,14 +63,15 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\calculate-energy-diplom-full\components" />
+      <recent name="E:\calculate-energy-diplom-full\app" />
       <recent name="E:\calculate-energy-diplom-full\public" />
       <recent name="E:\calculate-energy-diplom-full\app\api" />
-      <recent name="E:\calculate-energy-diplom-full\app" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\calculate-energy-diplom-full\public" />
-      <recent name="E:\calculate-energy-diplom-full" />
       <recent name="E:\calculate-energy-diplom-full\app" />
+      <recent name="E:\calculate-energy-diplom-full" />
     </key>
   </component>
   <component name="RunManager" selected="npm.dev">
@@ -152,70 +145,8 @@
       <workItem from="1716099978356" duration="695000" />
       <workItem from="1716101223639" duration="19779000" />
       <workItem from="1716175572574" duration="8204000" />
-    </task>
-    <task id="LOCAL-00001" summary="add needed folders">
-      <option name="closed" value="true" />
-      <created>1714410142897</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1714410142897</updated>
-    </task>
-    <task id="LOCAL-00002" summary="add export to pdf&#10;add config to .gitignore&#10;install package: jspdf&#10;add font Roboto to correct showing pdf charset">
-      <option name="closed" value="true" />
-      <created>1714478526279</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1714478526279</updated>
-    </task>
-    <task id="LOCAL-00003" summary="add export to word&#10;install libs:&#10; - docx&#10; - file-saver">
-      <option name="closed" value="true" />
-      <created>1714479235058</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1714479235058</updated>
-    </task>
-    <task id="LOCAL-00004" summary="add export to excel&#10;install lib:&#10; - xlsx">
-      <option name="closed" value="true" />
-      <created>1714493053763</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1714493053763</updated>
-    </task>
-    <task id="LOCAL-00005" summary="create component to show PieChart">
-      <option name="closed" value="true" />
-      <created>1714494147490</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1714494147490</updated>
-    </task>
-    <task id="LOCAL-00006" summary="update gitignore&#10;update schema Calculate for users&#10;add schema Device for all users storage date about device">
-      <option name="closed" value="true" />
-      <created>1714496771656</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1714496771656</updated>
-    </task>
-    <task id="LOCAL-00007" summary="create form to add device for admin only&#10;add new schema DeviceSchema">
-      <option name="closed" value="true" />
-      <created>1714544805075</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1714544805075</updated>
-    </task>
-    <task id="LOCAL-00008" summary="add own dns domain to sent email from other emails">
-      <option name="closed" value="true" />
-      <created>1714546630571</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1714546630571</updated>
+      <workItem from="1716183932067" duration="17603000" />
+      <workItem from="1716274230803" duration="639000" />
     </task>
     <task id="LOCAL-00009" summary="update env file">
       <option name="closed" value="true" />
@@ -545,7 +476,71 @@
       <option name="project" value="LOCAL" />
       <updated>1716180635752</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="add model ContactUs&#10;create page contact-us&#10;create action for contact-us&#10;create components: &#10; - ContactsInfo&#10; - ContactUsForm&#10; - TextArea">
+      <option name="closed" value="true" />
+      <created>1716184220834</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1716184220834</updated>
+    </task>
+    <task id="LOCAL-00051" summary="add contact-us to navbar">
+      <option name="closed" value="true" />
+      <created>1716184369443</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1716184369443</updated>
+    </task>
+    <task id="LOCAL-00052" summary="renaming label into Navbar">
+      <option name="closed" value="true" />
+      <created>1716184578501</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1716184578501</updated>
+    </task>
+    <task id="LOCAL-00053" summary="update favicon.ico&#10;add title for contact-us">
+      <option name="closed" value="true" />
+      <created>1716188539509</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1716188539509</updated>
+    </task>
+    <task id="LOCAL-00054" summary="add title for all page&#10;fix style for CalcForm&#10;disabled submit">
+      <option name="closed" value="true" />
+      <created>1716189666286</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1716189666286</updated>
+    </task>
+    <task id="LOCAL-00055" summary="change subject into mails">
+      <option name="closed" value="true" />
+      <created>1716189858353</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1716189858353</updated>
+    </task>
+    <task id="LOCAL-00056" summary="showing all comment from contact-us in admin side">
+      <option name="closed" value="true" />
+      <created>1716206670341</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1716206670341</updated>
+    </task>
+    <task id="LOCAL-00057" summary="add template for device in admin side&#10;add import file for admin &#10;add props: &#10; - ImportDevices.tsx&#10; - ExportTemplate.tsx&#10;fix naming in AddNewDevice.tsx">
+      <option name="closed" value="true" />
+      <created>1716218405379</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1716218405379</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -553,14 +548,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="update calc form,&#10;add slider&#10;add select to choose device, period" />
-    <MESSAGE value="update navbar:&#10; - add new path&#10; - add layout for all page" />
-    <MESSAGE value="update gitignore file" />
-    <MESSAGE value="add sheet for show menu in mobile device&#10;fix style:&#10; - made adaptive in all pages&#10; - fix style for admin side" />
-    <MESSAGE value="centered text in calc" />
-    <MESSAGE value="remove choice role, left showing role only for admin, readOnly" />
-    <MESSAGE value="create functionality to get calculate by userID" />
-    <MESSAGE value="add components: &#10; - Checkbox&#10; - EmptyCalculateData&#10;update page UserInfo:&#10; - add table for showing calculate data" />
     <MESSAGE value="add condition&#10;add skeleton while loading data" />
     <MESSAGE value="wrapper link into button" />
     <MESSAGE value="change variant for button" />
@@ -578,6 +565,14 @@
     <MESSAGE value="change bg for ThemeToggle" />
     <MESSAGE value="add link to contact-us" />
     <MESSAGE value="update lib from xlsx to exceljs" />
-    <option name="LAST_COMMIT_MESSAGE" value="update lib from xlsx to exceljs" />
+    <MESSAGE value="add model ContactUs&#10;create page contact-us&#10;create action for contact-us&#10;create components: &#10; - ContactsInfo&#10; - ContactUsForm&#10; - TextArea" />
+    <MESSAGE value="add contact-us to navbar" />
+    <MESSAGE value="renaming label into Navbar" />
+    <MESSAGE value="update favicon.ico&#10;add title for contact-us" />
+    <MESSAGE value="add title for all page&#10;fix style for CalcForm&#10;disabled submit" />
+    <MESSAGE value="change subject into mails" />
+    <MESSAGE value="showing all comment from contact-us in admin side" />
+    <MESSAGE value="add template for device in admin side&#10;add import file for admin &#10;add props: &#10; - ImportDevices.tsx&#10; - ExportTemplate.tsx&#10;fix naming in AddNewDevice.tsx" />
+    <option name="LAST_COMMIT_MESSAGE" value="add template for device in admin side&#10;add import file for admin &#10;add props: &#10; - ImportDevices.tsx&#10; - ExportTemplate.tsx&#10;fix naming in AddNewDevice.tsx" />
   </component>
 </project>
