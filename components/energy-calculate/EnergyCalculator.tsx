@@ -1,21 +1,22 @@
-'use client';
-import { FC, useState, useEffect, useTransition } from 'react';
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Slider } from "@/components/ui/slider";
+'use client'
+import {FC, useState, useEffect, useTransition} from 'react';
+import {Form, FormControl, FormField, FormItem, FormLabel, FormMessage} from "@/components/ui/form";
+import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@/components/ui/select";
+import {Slider} from "@/components/ui/slider";
 import FormError from "@/components/FormError";
 import FormSuccess from "@/components/FormSuccess";
-import { Button } from "@/components/ui/button";
-import { useForm, useFieldArray } from "react-hook-form";
+import {Button} from "@/components/ui/button";
+import {useForm, useFieldArray} from "react-hook-form";
 import * as z from "zod";
-import { CalculateDevices, DeviceSchema } from "@/schemas";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { calculateCreateMany } from "@/actions/calculate";
-import { getDevices } from "@/actions/getDevices";
-import { Input } from "@/components/ui/input";
-import { periodOptions } from "@/constans";
+import {CalculateDevices, DeviceSchema} from "@/schemas";
+import {zodResolver} from "@hookform/resolvers/zod";
+import {calculateCreateMany} from "@/actions/calculate";
+import {getDevices} from "@/actions/getDevices";
+import {Input} from "@/components/ui/input";
+import {periodOptions} from "@/constans";
 import ImportDevices from "@/components/import-devices/ImportDevices";
 import ExportTemplate from "@/components/export-template/ExportTemplate";
+import PieChart from "@/components/pie-chart/PieChart";
 
 const DevicesSchema = z.array(DeviceSchema);
 
@@ -37,17 +38,18 @@ const EnergyCalculator: FC = () => {
   const [stepKwMaxValues, setStepKwMaxValues] = useState<{ [key: number]: number }>({});
   const [isSubmitDisabled, setIsSubmitDisabled] = useState(false);
   const [isPending, startTransition] = useTransition();
+  const [calculatedData, setCalculatedData] = useState<z.infer<typeof CalculateDevices>[] | null>(null); // Добавляем состояние для результатов расчета
 
   const form = useForm<{
     devices: z.infer<typeof CalculateDevices>[]
   }>({
-    resolver: zodResolver(z.object({ devices: z.array(CalculateDevices) })),
+    resolver: zodResolver(z.object({devices: z.array(CalculateDevices)})),
     defaultValues: {
       devices: [defaultDevice],
     },
   });
 
-  const { fields, append, remove, replace } = useFieldArray({
+  const {fields, append, remove, replace} = useFieldArray({
     control: form.control,
     name: "devices"
   });
@@ -62,6 +64,14 @@ const EnergyCalculator: FC = () => {
       });
   }, []);
 
+  const calculateKwMonth = (count: number, hoursWork: number, kw: number, period: string) => {
+    let daysInPeriod = 30; // Default to month
+    if (period === "В день") daysInPeriod = 1;
+    if (period === "В тиждень") daysInPeriod = 7;
+
+    return count * hoursWork * kw * daysInPeriod;
+  };
+
   const onSubmit = async (values: { devices: z.infer<typeof CalculateDevices>[] }) => {
     setError('');
     setSuccess('');
@@ -69,12 +79,11 @@ const EnergyCalculator: FC = () => {
     startTransition(async () => {
       try {
         const data = await calculateCreateMany(values.devices);
-        console.log(values.devices)
-        console.log("Response data:", data); // Log response data
         setError(data?.error);
         setSuccess(data?.success);
         if (data?.success) {
           setIsSubmitDisabled(true);
+          setCalculatedData(values.devices);
         }
       } catch (err) {
         console.error('Error during submission:', err); // Log errors
@@ -86,8 +95,8 @@ const EnergyCalculator: FC = () => {
   const handleDeviceChange = (index: number, value: string) => {
     const device = devices.find((d) => d.nameDevice === value);
     if (device) {
-      setStepKwValues((prev) => ({ ...prev, [index]: Number(device.stepKw) }));
-      setStepKwMaxValues((prev) => ({ ...prev, [index]: Number(device.stepKwMax) }));
+      setStepKwValues((prev) => ({...prev, [index]: Number(device.stepKw)}));
+      setStepKwMaxValues((prev) => ({...prev, [index]: Number(device.stepKwMax)}));
     }
   };
 
@@ -104,7 +113,7 @@ const EnergyCalculator: FC = () => {
   return (
     <div className="container mx-auto p-4">
       <div className='flex justify-between items-center flex-wrap mb-2'>
-        <ImportDevices onImport={handleImport} />
+        <ImportDevices onImport={handleImport}/>
         <ExportTemplate disabledWordTemplate/>
       </div>
       <Form {...form}>
@@ -115,7 +124,7 @@ const EnergyCalculator: FC = () => {
                 <FormField
                   name={`devices.${index}.nameDevice`}
                   control={form.control}
-                  render={({ field }) => (
+                  render={({field}) => (
                     <FormItem>
                       <FormLabel>Назва пристрою</FormLabel>
                       <FormControl>
@@ -128,7 +137,7 @@ const EnergyCalculator: FC = () => {
                           disabled={isPending}
                         >
                           <SelectTrigger>
-                            <SelectValue placeholder="Виберіть пристрій" />
+                            <SelectValue placeholder="Виберіть пристрій"/>
                           </SelectTrigger>
                           <SelectContent>
                             {devices.map((device) => (
@@ -139,7 +148,7 @@ const EnergyCalculator: FC = () => {
                           </SelectContent>
                         </Select>
                       </FormControl>
-                      <FormMessage />
+                      <FormMessage/>
                     </FormItem>
                   )}
                 />
@@ -148,33 +157,33 @@ const EnergyCalculator: FC = () => {
                     <FormField
                       name={`devices.${index}.count`}
                       control={form.control}
-                      render={({ field }) => (
+                      render={({field}) => (
                         <FormItem>
                           <FormLabel>Кількість</FormLabel>
                           <FormControl>
-                            <Input {...field} disabled={isPending} />
+                            <Input {...field} disabled={isPending}/>
                           </FormControl>
-                          <FormMessage />
+                          <FormMessage/>
                         </FormItem>
                       )}
                     />
                     <FormField
                       name={`devices.${index}.hoursWork`}
                       control={form.control}
-                      render={({ field }) => (
+                      render={({field}) => (
                         <FormItem>
                           <FormLabel>Часи роботи</FormLabel>
                           <FormControl>
-                            <Input {...field} disabled={isPending} />
+                            <Input {...field} disabled={isPending}/>
                           </FormControl>
-                          <FormMessage />
+                          <FormMessage/>
                         </FormItem>
                       )}
                     />
                     <FormField
                       name={`devices.${index}.period`}
                       control={form.control}
-                      render={({ field }) => (
+                      render={({field}) => (
                         <FormItem>
                           <FormLabel>Період</FormLabel>
                           <FormControl>
@@ -184,7 +193,7 @@ const EnergyCalculator: FC = () => {
                               disabled={false}
                             >
                               <SelectTrigger>
-                                <SelectValue placeholder="Виберіть період" />
+                                <SelectValue placeholder="Виберіть період"/>
                               </SelectTrigger>
                               <SelectContent>
                                 {periodOptions.map((option) => (
@@ -195,14 +204,14 @@ const EnergyCalculator: FC = () => {
                               </SelectContent>
                             </Select>
                           </FormControl>
-                          <FormMessage />
+                          <FormMessage/>
                         </FormItem>
                       )}
                     />
                     <FormField
                       name={`devices.${index}.kw`}
                       control={form.control}
-                      render={({ field }) => (
+                      render={({field}) => (
                         <FormItem>
                           <FormLabel>кВт</FormLabel>
                           <FormControl>
@@ -216,29 +225,28 @@ const EnergyCalculator: FC = () => {
                               disabled={isPending}
                             />
                           </FormControl>
-                          <div className="mt-2 text-sm text-gray-500">Current kW: {field.value}</div>
-                          <FormMessage />
+                          <div className="mt-2 text-sm text-gray-500">Крок кВт: {field.value}</div>
+                          <FormMessage/>
                         </FormItem>
                       )}
                     />
                     <FormField
                       name={`devices.${index}.kwMonth`}
                       control={form.control}
-                      render={({ field }) => (
+                      render={({field}) => (
                         <FormItem>
                           <FormLabel>кВт в місяць</FormLabel>
                           <FormControl>
-                            <Input {...field} disabled={isPending} />
+                            <Input {...field} disabled={true}/>
                           </FormControl>
-                          <FormMessage />
+                          <FormMessage/>
                         </FormItem>
                       )}
                     />
                     <Button type="button" onClick={() => {
                       remove(index);
                       setIsSubmitDisabled(false);
-                    }} className="w-full mt-2">
-                      Видалити
+                    }} className="w-full mt-2"> Видалити
                     </Button>
                   </>
                 )}
@@ -248,15 +256,21 @@ const EnergyCalculator: FC = () => {
           <Button type="button" onClick={handleAddDevice} className="w-full">
             Додати
           </Button>
-          <FormError message={error} />
-          <FormSuccess message={success} />
-          <Button type="submit" className="w-full" disabled={isPending || isSubmitDisabled}>
+          <FormError message={error}/>
+          <FormSuccess message={success}/>
+          <Button type="submit" className="w-full mt-6" disabled={isPending || isSubmitDisabled}>
             Розрахувати
           </Button>
         </form>
       </Form>
+      {calculatedData && (
+        <div className="mt-6">
+          <PieChart data={calculatedData}/>
+        </div>
+      )}
     </div>
   );
 };
 
 export default EnergyCalculator;
+

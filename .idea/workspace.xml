@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bf4ec1fc-e48d-4545-af1b-64be8bbd48ae" name="Changes" comment="add template for device in admin side&#10;add import file for admin &#10;add props: &#10; - ImportDevices.tsx&#10; - ExportTemplate.tsx&#10;fix naming in AddNewDevice.tsx">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/calc-form/CalcForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/calc-form/CalcForm.tsx" afterDir="false" />
+    <list default="true" id="bf4ec1fc-e48d-4545-af1b-64be8bbd48ae" name="Changes" comment="add calculate logic into CalcForm">
+      <change beforePath="$PROJECT_DIR$/components/energy-calculate/EnergyCalculator.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/energy-calculate/EnergyCalculator.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -146,15 +145,7 @@
       <workItem from="1716101223639" duration="19779000" />
       <workItem from="1716175572574" duration="8204000" />
       <workItem from="1716183932067" duration="17603000" />
-      <workItem from="1716274230803" duration="639000" />
-    </task>
-    <task id="LOCAL-00009" summary="update env file">
-      <option name="closed" value="true" />
-      <created>1714546878397</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1714546878397</updated>
+      <workItem from="1716274230803" duration="936000" />
     </task>
     <task id="LOCAL-00010" summary="getting all device&#10;add libs:&#10; table&#10; tabs">
       <option name="closed" value="true" />
@@ -540,7 +531,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716218405379</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="add calculate logic into CalcForm">
+      <option name="closed" value="true" />
+      <created>1716274950326</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1716274950326</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -548,7 +547,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="add condition&#10;add skeleton while loading data" />
     <MESSAGE value="wrapper link into button" />
     <MESSAGE value="change variant for button" />
     <MESSAGE value="create skeleton for table&#10;add logic with checked checkbox" />
@@ -573,6 +571,7 @@
     <MESSAGE value="change subject into mails" />
     <MESSAGE value="showing all comment from contact-us in admin side" />
     <MESSAGE value="add template for device in admin side&#10;add import file for admin &#10;add props: &#10; - ImportDevices.tsx&#10; - ExportTemplate.tsx&#10;fix naming in AddNewDevice.tsx" />
-    <option name="LAST_COMMIT_MESSAGE" value="add template for device in admin side&#10;add import file for admin &#10;add props: &#10; - ImportDevices.tsx&#10; - ExportTemplate.tsx&#10;fix naming in AddNewDevice.tsx" />
+    <MESSAGE value="add calculate logic into CalcForm" />
+    <option name="LAST_COMMIT_MESSAGE" value="add calculate logic into CalcForm" />
   </component>
 </project>
