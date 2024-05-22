@@ -222,7 +222,7 @@ const CalcForm: FC<ICalcFormProps> = ({}) => {
       </Form>
       {calculatedData && calculatedData.length > 0 && (
         <div className="mt-6">
-          <h3 className="text-xl font-semibold mb-4">Результати розрахунку</h3>
+          <h3 className="text-xl font-semibold mb-4 flex justify-center">Результати розрахунку</h3>
           <PieChart data={calculatedData} />
         </div>
       )}

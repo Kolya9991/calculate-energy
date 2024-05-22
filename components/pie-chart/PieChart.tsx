@@ -66,7 +66,7 @@ const PieChart: FC<IPieChartProps> = ({ data }) => {
 
 
   return (
-    <div>
+    <div className='flex justify-center'>
       <Pie data={chartData} options={options} />
     </div>
   );

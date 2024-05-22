@@ -62,13 +62,13 @@ const ImportDevices: FC<ImportDevicesProps> = ({ onImport, importAdminDevice }) 
   const translateFields = (data: any[]) => {
     return data.map(item => ({
       id: '',
-      nameDevice: item['Назва приладу'],
-      kwMin: item['кВт мін'],
+      nameDevice: String(item['Назва приладу']),
+      kwMin: String(item['кВт мін']),
       kwMax: String(item['кВт макс']),
-      stepKw: item['Крок кВт'],
+      stepKw: String(item['Крок кВт']),
       maxKwMonth: String(item['Макс кВт в місяць']),
-      stepKwMin: item['крок кВт мін'],
-      stepKwMax: item['крок кВт макс'],
+      stepKwMin: String(item['крок кВт мін']),
+      stepKwMax: String(item['крок кВт макс']),
     }));
   };
 
@@ -80,13 +80,12 @@ const ImportDevices: FC<ImportDevicesProps> = ({ onImport, importAdminDevice }) 
       hoursWork: item['Години роботи'],
       period: item['Період'],
       kw: item['кВт'],
-      kwMonth: item['кВт в місяць']
     }));
   };
 
   return (
     <div className='mt-3 mb-8'>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className='flex flex-col items-baseline gap-1'>
         <p className='mb-2'>Виберіть файл для імпорту</p>
         <input type="file" onChange={handleFileChange} accept=".xlsx" />
         <button type="submit">Завантажити файл</button>

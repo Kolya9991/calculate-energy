@@ -8,7 +8,6 @@ export const headersXlsxTemplate = {
   'Години роботи': null,
   'Період': null,
   'кВт': null,
-  'кВт в місяць': null
 };
 
 

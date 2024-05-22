@@ -69,7 +69,9 @@ const EnergyCalculator: FC = () => {
     if (period === "В день") daysInPeriod = 1;
     if (period === "В тиждень") daysInPeriod = 7;
 
-    return count * hoursWork * kw * daysInPeriod;
+    const res = count * hoursWork * kw * daysInPeriod;
+    console.log(res);
+    return res;
   };
 
   const onSubmit = async (values: { devices: z.infer<typeof CalculateDevices>[] }) => {
@@ -265,7 +267,10 @@ const EnergyCalculator: FC = () => {
       </Form>
       {calculatedData && (
         <div className="mt-6">
-          <PieChart data={calculatedData}/>
+          <PieChart data={calculatedData.map(device => ({
+            ...device,
+            kwMonth: calculateKwMonth(Number(device.count), Number(device.hoursWork), Number(device.kw), device.period).toString()
+          }))} />
         </div>
       )}
     </div>

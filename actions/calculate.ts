@@ -28,7 +28,7 @@ export const calculate = async (values: z.infer<typeof CalculateDevices>) => {
         kwMonth
       }
     });
-    return {success: 'success'}
+    return {success: `Калькуляція прошла успішно!`}
   }
 }
 
@@ -62,7 +62,7 @@ export const calculateCreateMany = async (devices: z.infer<typeof CalculateDevic
     skipDuplicates: true
   });
 
-  return {success: 'success'}
+  return {success: `Калькуляція ${dataToCreate.length} прошла успішно!`}
 }
 
 export const getCalculate = async (userId?: string) => {

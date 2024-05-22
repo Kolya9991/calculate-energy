@@ -44,7 +44,7 @@ const Navbar = () => {
   );
 
   return (
-    <nav className='bg-secondary flex justify-between items-center p-4 rounded-xl w-full shadow-md  overflow-x-auto'>
+    <nav className='bg-secondary flex justify-between items-center p-4 rounded-xl w-full shadow-md  overflow-x-auto min-h-[75px]'>
       <div className='hidden md:flex'>
         <NavContent/>
       </div>
