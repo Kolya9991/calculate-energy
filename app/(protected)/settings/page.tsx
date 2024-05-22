@@ -55,7 +55,7 @@ const SettingPage = () => {
   }
 
   return (
-    <Card className='w-auto'>
+    <Card className='w-full md:max-w-[500px]'>
       <CardHeader>
         <p className='text-2xl font-semibold'>⚙️ Налаштування</p>
       </CardHeader>
