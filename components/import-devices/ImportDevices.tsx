@@ -17,6 +17,14 @@ const ImportDevices: FC<ImportDevicesProps> = ({ onImport, importAdminDevice }) 
     }
   };
 
+  const calculateKwMonth = (count: number, hoursWork: number, kw: number, period: string) => {
+    let daysInPeriod = 30; // Default to month
+    if (period === "В день") daysInPeriod = 1;
+    if (period === "В тиждень") daysInPeriod = 7;
+
+    return count * hoursWork * kw * daysInPeriod;
+  };
+
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
@@ -73,14 +81,22 @@ const ImportDevices: FC<ImportDevicesProps> = ({ onImport, importAdminDevice }) 
   };
 
   const translateDevice = (data: any[]) => {
-    return data.map(item => ({
-      id: '',
-      nameDevice: item['Назва приладу'],
-      count: item['Кількість'],
-      hoursWork: item['Години роботи'],
-      period: item['Період'],
-      kw: item['кВт'],
-    }));
+    return data.map(item => {
+      const count = Number(item['Кількість']);
+      const hoursWork = Number(item['Години роботи']);
+      const kw = Number(item['кВт']);
+      const period = String(item['Період']);
+
+      return {
+        id: '',
+        nameDevice: item['Назва приладу'],
+        count: item['Кількість'],
+        hoursWork: item['Години роботи'],
+        period: item['Період'],
+        kw: item['кВт'],
+        kwMonth: calculateKwMonth(count, hoursWork, kw, period).toString()
+      };
+    });
   };
 
   return (

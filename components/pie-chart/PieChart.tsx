@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import { FC } from "react";
 import { Pie } from 'react-chartjs-2';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
@@ -16,7 +16,7 @@ const PieChart: FC<IPieChartProps> = ({ data }) => {
     labels: data.map(item => item.nameDevice),
     datasets: [{
       label: 'кВт в місяць',
-      data: data.map(item => item.kwMonth),
+      data: data.map(item => Number(item.kwMonth)),
       backgroundColor: [
         '#ff6384',
         '#36a2eb',
@@ -63,7 +63,6 @@ const PieChart: FC<IPieChartProps> = ({ data }) => {
       },
     }
   };
-
 
   return (
     <div className='flex justify-center'>

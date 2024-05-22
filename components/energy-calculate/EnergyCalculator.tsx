@@ -1,19 +1,19 @@
-'use client'
-import {FC, useState, useEffect, useTransition} from 'react';
-import {Form, FormControl, FormField, FormItem, FormLabel, FormMessage} from "@/components/ui/form";
-import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@/components/ui/select";
-import {Slider} from "@/components/ui/slider";
+'use client';
+import { FC, useState, useEffect, useTransition } from 'react';
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Slider } from "@/components/ui/slider";
 import FormError from "@/components/FormError";
 import FormSuccess from "@/components/FormSuccess";
-import {Button} from "@/components/ui/button";
-import {useForm, useFieldArray} from "react-hook-form";
+import { Button } from "@/components/ui/button";
+import { useForm, useFieldArray } from "react-hook-form";
 import * as z from "zod";
-import {CalculateDevices, DeviceSchema} from "@/schemas";
-import {zodResolver} from "@hookform/resolvers/zod";
-import {calculateCreateMany} from "@/actions/calculate";
-import {getDevices} from "@/actions/getDevices";
-import {Input} from "@/components/ui/input";
-import {periodOptions} from "@/constans";
+import { CalculateDevices, DeviceSchema } from "@/schemas";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { calculateCreateMany } from "@/actions/calculate";
+import { getDevices } from "@/actions/getDevices";
+import { Input } from "@/components/ui/input";
+import { periodOptions } from "@/constans";
 import ImportDevices from "@/components/import-devices/ImportDevices";
 import ExportTemplate from "@/components/export-template/ExportTemplate";
 import PieChart from "@/components/pie-chart/PieChart";
@@ -38,18 +38,18 @@ const EnergyCalculator: FC = () => {
   const [stepKwMaxValues, setStepKwMaxValues] = useState<{ [key: number]: number }>({});
   const [isSubmitDisabled, setIsSubmitDisabled] = useState(false);
   const [isPending, startTransition] = useTransition();
-  const [calculatedData, setCalculatedData] = useState<z.infer<typeof CalculateDevices>[] | null>(null); // Добавляем состояние для результатов расчета
+  const [calculatedData, setCalculatedData] = useState<z.infer<typeof CalculateDevices>[] | null>(null);
 
   const form = useForm<{
     devices: z.infer<typeof CalculateDevices>[]
   }>({
-    resolver: zodResolver(z.object({devices: z.array(CalculateDevices)})),
+    resolver: zodResolver(z.object({ devices: z.array(CalculateDevices) })),
     defaultValues: {
       devices: [defaultDevice],
     },
   });
 
-  const {fields, append, remove, replace} = useFieldArray({
+  const { fields, append, remove, replace } = useFieldArray({
     control: form.control,
     name: "devices"
   });
@@ -69,15 +69,12 @@ const EnergyCalculator: FC = () => {
     if (period === "В день") daysInPeriod = 1;
     if (period === "В тиждень") daysInPeriod = 7;
 
-    const res = count * hoursWork * kw * daysInPeriod;
-    console.log(res);
-    return res;
+    return count * hoursWork * kw * daysInPeriod;
   };
 
   const onSubmit = async (values: { devices: z.infer<typeof CalculateDevices>[] }) => {
     setError('');
     setSuccess('');
-    console.log('onSubmit')
     startTransition(async () => {
       try {
         const data = await calculateCreateMany(values.devices);
@@ -88,7 +85,7 @@ const EnergyCalculator: FC = () => {
           setCalculatedData(values.devices);
         }
       } catch (err) {
-        console.error('Error during submission:', err); // Log errors
+        console.error('Error during submission:', err);
         setError('An error occurred while submitting the form.');
       }
     });
@@ -97,8 +94,8 @@ const EnergyCalculator: FC = () => {
   const handleDeviceChange = (index: number, value: string) => {
     const device = devices.find((d) => d.nameDevice === value);
     if (device) {
-      setStepKwValues((prev) => ({...prev, [index]: Number(device.stepKw)}));
-      setStepKwMaxValues((prev) => ({...prev, [index]: Number(device.stepKwMax)}));
+      setStepKwValues((prev) => ({ ...prev, [index]: Number(device.stepKw) }));
+      setStepKwMaxValues((prev) => ({ ...prev, [index]: Number(device.stepKwMax) }));
     }
   };
 
@@ -108,15 +105,20 @@ const EnergyCalculator: FC = () => {
   };
 
   const handleImport = async (importedDevices: z.infer<typeof CalculateDevices>[]) => {
-    replace(importedDevices);
+    const devicesWithKwMonth = importedDevices.map(device => ({
+      ...device,
+      kwMonth: calculateKwMonth(Number(device.count), Number(device.hoursWork), Number(device.kw), device.period).toString()
+    }));
+
+    replace(devicesWithKwMonth);
     setIsSubmitDisabled(false);
   };
 
   return (
     <div className="container mx-auto p-4">
       <div className='flex justify-between items-center flex-wrap mb-2'>
-        <ImportDevices onImport={handleImport}/>
-        <ExportTemplate disabledWordTemplate/>
+        <ImportDevices onImport={handleImport} />
+        <ExportTemplate disabledWordTemplate />
       </div>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
@@ -126,7 +128,7 @@ const EnergyCalculator: FC = () => {
                 <FormField
                   name={`devices.${index}.nameDevice`}
                   control={form.control}
-                  render={({field}) => (
+                  render={({ field }) => (
                     <FormItem>
                       <FormLabel>Назва пристрою</FormLabel>
                       <FormControl>
@@ -135,11 +137,17 @@ const EnergyCalculator: FC = () => {
                           onValueChange={(value) => {
                             field.onChange(value);
                             handleDeviceChange(index, value);
+                            form.setValue(`devices.${index}.kwMonth`, calculateKwMonth(
+                              Number(form.getValues(`devices.${index}.count`)),
+                              Number(form.getValues(`devices.${index}.hoursWork`)),
+                              Number(form.getValues(`devices.${index}.kw`)),
+                              form.getValues(`devices.${index}.period`)
+                            ).toString());
                           }}
                           disabled={isPending}
                         >
                           <SelectTrigger>
-                            <SelectValue placeholder="Виберіть пристрій"/>
+                            <SelectValue placeholder="Виберіть пристрій" />
                           </SelectTrigger>
                           <SelectContent>
                             {devices.map((device) => (
@@ -150,7 +158,7 @@ const EnergyCalculator: FC = () => {
                           </SelectContent>
                         </Select>
                       </FormControl>
-                      <FormMessage/>
+                      <FormMessage />
                     </FormItem>
                   )}
                 />
@@ -159,43 +167,75 @@ const EnergyCalculator: FC = () => {
                     <FormField
                       name={`devices.${index}.count`}
                       control={form.control}
-                      render={({field}) => (
+                      render={({ field }) => (
                         <FormItem>
                           <FormLabel>Кількість</FormLabel>
                           <FormControl>
-                            <Input {...field} disabled={isPending}/>
+                            <Input
+                              {...field}
+                              disabled={isPending}
+                              onChange={(e) => {
+                                field.onChange(e);
+                                form.setValue(`devices.${index}.kwMonth`, calculateKwMonth(
+                                  Number(e.target.value),
+                                  Number(form.getValues(`devices.${index}.hoursWork`)),
+                                  Number(form.getValues(`devices.${index}.kw`)),
+                                  form.getValues(`devices.${index}.period`)
+                                ).toString());
+                              }}
+                            />
                           </FormControl>
-                          <FormMessage/>
+                          <FormMessage />
                         </FormItem>
                       )}
                     />
                     <FormField
                       name={`devices.${index}.hoursWork`}
                       control={form.control}
-                      render={({field}) => (
+                      render={({ field }) => (
                         <FormItem>
                           <FormLabel>Часи роботи</FormLabel>
                           <FormControl>
-                            <Input {...field} disabled={isPending}/>
+                            <Input
+                              {...field}
+                              disabled={isPending}
+                              onChange={(e) => {
+                                field.onChange(e);
+                                form.setValue(`devices.${index}.kwMonth`, calculateKwMonth(
+                                  Number(form.getValues(`devices.${index}.count`)),
+                                  Number(e.target.value),
+                                  Number(form.getValues(`devices.${index}.kw`)),
+                                  form.getValues(`devices.${index}.period`)
+                                ).toString());
+                              }}
+                            />
                           </FormControl>
-                          <FormMessage/>
+                          <FormMessage />
                         </FormItem>
                       )}
                     />
                     <FormField
                       name={`devices.${index}.period`}
                       control={form.control}
-                      render={({field}) => (
+                      render={({ field }) => (
                         <FormItem>
                           <FormLabel>Період</FormLabel>
                           <FormControl>
                             <Select
                               value={field.value}
-                              onValueChange={field.onChange}
+                              onValueChange={(value) => {
+                                field.onChange(value);
+                                form.setValue(`devices.${index}.kwMonth`, calculateKwMonth(
+                                  Number(form.getValues(`devices.${index}.count`)),
+                                  Number(form.getValues(`devices.${index}.hoursWork`)),
+                                  Number(form.getValues(`devices.${index}.kw`)),
+                                  value
+                                ).toString());
+                              }}
                               disabled={false}
                             >
                               <SelectTrigger>
-                                <SelectValue placeholder="Виберіть період"/>
+                                <SelectValue placeholder="Виберіть період" />
                               </SelectTrigger>
                               <SelectContent>
                                 {periodOptions.map((option) => (
@@ -206,14 +246,14 @@ const EnergyCalculator: FC = () => {
                               </SelectContent>
                             </Select>
                           </FormControl>
-                          <FormMessage/>
+                          <FormMessage />
                         </FormItem>
                       )}
                     />
                     <FormField
                       name={`devices.${index}.kw`}
                       control={form.control}
-                      render={({field}) => (
+                      render={({ field }) => (
                         <FormItem>
                           <FormLabel>кВт</FormLabel>
                           <FormControl>
@@ -223,25 +263,31 @@ const EnergyCalculator: FC = () => {
                               max={stepKwMaxValues[index] || 100}
                               onValueChange={(value) => {
                                 field.onChange(String(value[0]));
+                                form.setValue(`devices.${index}.kwMonth`, calculateKwMonth(
+                                  Number(form.getValues(`devices.${index}.count`)),
+                                  Number(form.getValues(`devices.${index}.hoursWork`)),
+                                  value[0],
+                                  form.getValues(`devices.${index}.period`)
+                                ).toString());
                               }}
                               disabled={isPending}
                             />
                           </FormControl>
                           <div className="mt-2 text-sm text-gray-500">Крок кВт: {field.value}</div>
-                          <FormMessage/>
+                          <FormMessage />
                         </FormItem>
                       )}
                     />
                     <FormField
                       name={`devices.${index}.kwMonth`}
                       control={form.control}
-                      render={({field}) => (
+                      render={({ field }) => (
                         <FormItem>
                           <FormLabel>кВт в місяць</FormLabel>
                           <FormControl>
-                            <Input {...field} disabled={true}/>
+                            <Input {...field} disabled={true} />
                           </FormControl>
-                          <FormMessage/>
+                          <FormMessage />
                         </FormItem>
                       )}
                     />
@@ -258,8 +304,8 @@ const EnergyCalculator: FC = () => {
           <Button type="button" onClick={handleAddDevice} className="w-full">
             Додати
           </Button>
-          <FormError message={error}/>
-          <FormSuccess message={success}/>
+          <FormError message={error} />
+          <FormSuccess message={success} />
           <Button type="submit" className="w-full mt-6" disabled={isPending || isSubmitDisabled}>
             Розрахувати
           </Button>
@@ -269,7 +315,12 @@ const EnergyCalculator: FC = () => {
         <div className="mt-6">
           <PieChart data={calculatedData.map(device => ({
             ...device,
-            kwMonth: calculateKwMonth(Number(device.count), Number(device.hoursWork), Number(device.kw), device.period).toString()
+            kwMonth: calculateKwMonth(
+              Number(device.count),
+              Number(device.hoursWork),
+              Number(device.kw),
+              device.period
+            ).toString()
           }))} />
         </div>
       )}
