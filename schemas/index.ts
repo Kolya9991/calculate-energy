@@ -41,7 +41,7 @@ export const SettingSchema = z.object({
   return true;
 }, {
   message: 'Новий пароль є обов`язковим',
-  path: ['password']
+  path: ['newPassword']
 })
 
 export const DeviceSchema = z.object({

@@ -36,6 +36,8 @@ export const login = async (values: z.infer<typeof LoginSchema>, callbackUrl?: s
         return {error: 'Неправильний код'}
       }
       if (twoFactorToken.token !== code) {
+        console.log(twoFactorToken.token)
+        console.log(code)
         return {error: 'Неправильний код'}
       }
 
