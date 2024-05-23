@@ -1,5 +1,5 @@
 'use client'
-import {FC, useEffect, useState} from 'react'
+import {FC, useEffect, useState} from 'react';
 import {ExtendedUser} from "@/next-auth";
 import * as z from "zod";
 import {CalculateDevices} from "@/schemas";
@@ -12,6 +12,8 @@ import ExportToXLSXButton from "@/components/export-to-xlsx/ExportToXLSXButton";
 import ExportToDocxButton from "@/components/export-to-docx/ExportToDocxButton";
 import ExportToPdfButton from "@/components/export-to-pdf/ExportToPDFButton";
 import {toast} from "sonner";
+import PieChart from "@/components/pie-chart/PieChart";
+import {Switch} from "@/components/ui/switch";
 
 interface IUserInfoProps {
   user?: ExtendedUser
@@ -19,10 +21,11 @@ interface IUserInfoProps {
 
 const CalculateSchema = z.array(CalculateDevices);
 
-const UserInfo: FC<IUserInfoProps> = ({ user}) => {
+const UserInfo: FC<IUserInfoProps> = ({user}) => {
   const [calculate, setCalculate] = useState<z.infer<typeof CalculateSchema>>([]);
   const [selectedItems, setSelectedItems] = useState<number[]>([]);
   const [isAllSelected, setIsAllSelected] = useState(false);
+  const [showPieChart, setShowPieChart] = useState(false); // State to toggle PieChart visibility
 
   useEffect(() => {
     getCalculate(user?.id)
@@ -58,6 +61,10 @@ const UserInfo: FC<IUserInfoProps> = ({ user}) => {
 
   const getSelectedData = () => {
     return selectedItems.map(index => calculate[index]);
+  };
+
+  const handleSwitchChange = (checked: boolean) => {
+    setShowPieChart(checked);
   };
 
   if (!calculate.length) {
@@ -111,12 +118,20 @@ const UserInfo: FC<IUserInfoProps> = ({ user}) => {
           </Table>
 
           <div className='flex gap-2 mt-8 justify-center flex-wrap'>
-            <ExportToXLSXButton data={getSelectedData()} disabled={selectedItems.length === 0} />
-            <ExportToDocxButton data={getSelectedData()} disabled={selectedItems.length === 0} />
-            <ExportToPdfButton data={getSelectedData()} disabled={selectedItems.length === 0} />
+            <ExportToXLSXButton data={getSelectedData()} disabled={selectedItems.length === 0}/>
+            <ExportToDocxButton data={getSelectedData()} disabled={selectedItems.length === 0}/>
+            <ExportToPdfButton data={getSelectedData()} disabled={selectedItems.length === 0}/>
+            <div className='flex items-center'>
+              <Switch onCheckedChange={handleSwitchChange} disabled={selectedItems.length === 0}/>
+              <span className='ml-2'>Показати діаграму</span>
+            </div>
           </div>
+
+          {showPieChart && selectedItems.length > 0 ? (
+            <PieChart data={getSelectedData()}/>
+          ) : null }
         </div>
-      ) : <SkeletonTable />}
+      ) : <SkeletonTable/>}
     </>
   );
 };
