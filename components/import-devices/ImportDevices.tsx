@@ -83,9 +83,9 @@ const ImportDevices: FC<ImportDevicesProps> = ({ onImport, importAdminDevice }) 
 
   const translateDevice = (data: any[]) => {
     return data.map(item => {
-      const count = Number(item['Кількість']);
-      const hoursWork = Number(item['Години роботи']);
-      const kw = Number(item['кВт']);
+      const count = String(item['Кількість']);
+      const hoursWork = String(item['Години роботи']);
+      const kw = String(item['кВт']);
       const period = String(item['Період']);
 
       return {
@@ -95,7 +95,7 @@ const ImportDevices: FC<ImportDevicesProps> = ({ onImport, importAdminDevice }) 
         hoursWork: item['Години роботи'],
         period: item['Період'],
         kw: item['кВт'],
-        kwMonth: calculateKwMonth(count, hoursWork, kw, period).toString()
+        kwMonth: calculateKwMonth(Number(count), Number(hoursWork), Number(kw), period).toString()
       };
     });
   };
