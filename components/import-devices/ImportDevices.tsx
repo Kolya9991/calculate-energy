@@ -2,6 +2,7 @@
 import React, { FC, useState } from 'react';
 import ExcelJS from 'exceljs';
 import { toast } from 'sonner';
+import {Button} from "@/components/ui/button";
 
 interface ImportDevicesProps {
   onImport: (devices: any[]) => void;
@@ -104,7 +105,7 @@ const ImportDevices: FC<ImportDevicesProps> = ({ onImport, importAdminDevice }) 
       <form onSubmit={handleSubmit} className='flex flex-col items-baseline gap-1'>
         <p className='mb-2'>Виберіть файл для імпорту</p>
         <input type="file" onChange={handleFileChange} accept=".xlsx" />
-        <button type="submit">Завантажити файл</button>
+        <Button type='submit'>Завантажити файл</Button>
       </form>
     </div>
   );
