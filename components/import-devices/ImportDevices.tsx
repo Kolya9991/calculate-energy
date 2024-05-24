@@ -2,7 +2,7 @@
 import React, { FC, useState } from 'react';
 import ExcelJS from 'exceljs';
 import { toast } from 'sonner';
-import {Button} from "@/components/ui/button";
+import { Button } from "@/components/ui/button";
 
 interface ImportDevicesProps {
   onImport: (devices: any[]) => void;
@@ -18,12 +18,12 @@ const ImportDevices: FC<ImportDevicesProps> = ({ onImport, importAdminDevice }) 
     }
   };
 
-  const calculateKwMonth = (count: number, hoursWork: number, kw: number, period: string) => {
+  const calculateKwMonth = (count: string, hoursWork: string, kw: string, period: string) => {
     let daysInPeriod = 30; // Default to month
     if (period === "В день") daysInPeriod = 1;
     if (period === "В тиждень") daysInPeriod = 7;
 
-    return count * hoursWork * kw * daysInPeriod;
+    return (Number(count) * Number(hoursWork) * Number(kw) * daysInPeriod).toString();
   };
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -90,12 +90,12 @@ const ImportDevices: FC<ImportDevicesProps> = ({ onImport, importAdminDevice }) 
 
       return {
         id: '',
-        nameDevice: item['Назва приладу'],
-        count: item['Кількість'],
-        hoursWork: item['Години роботи'],
-        period: item['Період'],
-        kw: item['кВт'],
-        kwMonth: calculateKwMonth(Number(count), Number(hoursWork), Number(kw), period).toString()
+        nameDevice: String(item['Назва приладу']),
+        count,
+        hoursWork,
+        period,
+        kw,
+        kwMonth: calculateKwMonth(count, hoursWork, kw, period)
       };
     });
   };

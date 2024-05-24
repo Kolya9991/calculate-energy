@@ -62,7 +62,7 @@ export const calculateCreateMany = async (devices: z.infer<typeof CalculateDevic
     skipDuplicates: true
   });
 
-  return {success: `Калькуляція ${dataToCreate.length} прошла успішно!`}
+  return {success: `Калькуляція ${dataToCreate.length} пристроїв прошла успішно!`}
 }
 
 export const getCalculate = async (userId?: string) => {
